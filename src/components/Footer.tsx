@@ -223,7 +223,7 @@ export default function Footer() {
                   alt="HummingAgent"
                   width={24}
                   height={24}
-                  className="w-6 h-6"
+                  className="w-6 h-6 rounded-full"
                 />
                 HummingAgent AI
               </a>

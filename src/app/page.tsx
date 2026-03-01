@@ -769,13 +769,15 @@ export default function Home() {
                   Featured AI Partner
                 </div>
                 <div className="flex items-center gap-4 mb-4">
-                  <Image
-                    src="/images/hummingagent-bird.png"
-                    alt="HummingAgent"
-                    width={48}
-                    height={48}
-                    className="w-12 h-12"
-                  />
+                  <div className="w-12 h-12 bg-gradient-to-br from-rust to-copper rounded-full p-2 flex items-center justify-center shadow-lg">
+                    <Image
+                      src="/images/hummingagent-bird.png"
+                      alt="HummingAgent"
+                      width={36}
+                      height={36}
+                      className="w-8 h-8 rounded-full"
+                    />
+                  </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white font-playfair">
                     HummingAgent AI
                   </h3>
@@ -794,13 +796,13 @@ export default function Home() {
                 </Link>
               </div>
               <div className="flex items-center justify-center">
-                <div className="w-48 h-48 bg-gradient-to-br from-rust/20 to-copper/20 rounded-full flex items-center justify-center">
+                <div className="w-48 h-48 bg-gradient-to-br from-rust to-copper rounded-full flex items-center justify-center shadow-2xl p-6">
                   <Image
                     src="/images/hummingagent-bird.png"
                     alt="HummingAgent"
                     width={128}
                     height={128}
-                    className="w-32 h-32"
+                    className="w-32 h-32 rounded-full"
                   />
                 </div>
               </div>

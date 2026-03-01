@@ -137,13 +137,15 @@ export default function PartnersPage() {
               Featured AI Partner
             </div>
             <div className="flex items-center justify-center gap-4 mb-2">
-              <Image
-                src="/images/hummingagent-bird.png"
-                alt="HummingAgent"
-                width={60}
-                height={60}
-                className="w-14 h-14"
-              />
+              <div className="w-14 h-14 bg-gradient-to-br from-rust to-copper rounded-full p-2 flex items-center justify-center shadow-lg">
+                <Image
+                  src="/images/hummingagent-bird.png"
+                  alt="HummingAgent"
+                  width={48}
+                  height={48}
+                  className="w-10 h-10 rounded-full"
+                />
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-charcoal font-playfair">
                 {featuredPartner.name}
               </h2>
@@ -193,8 +195,14 @@ export default function PartnersPage() {
 
               {/* Right - Visual & Testimonial */}
               <div className="bg-gradient-to-br from-rust/20 to-copper/20 p-8 lg:p-12 flex flex-col justify-center">
-                <div className="w-32 h-32 bg-gradient-to-br from-rust to-copper rounded-3xl mx-auto mb-8 flex items-center justify-center shadow-2xl">
-                  <Zap className="w-16 h-16 text-white" />
+                <div className="w-40 h-40 bg-gradient-to-br from-rust to-copper rounded-full mx-auto mb-8 flex items-center justify-center shadow-2xl p-4">
+                  <Image
+                    src="/images/hummingagent-bird.png"
+                    alt="HummingAgent"
+                    width={120}
+                    height={120}
+                    className="w-28 h-28 rounded-full"
+                  />
                 </div>
                 
                 <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/10">
