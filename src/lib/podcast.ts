@@ -40,14 +40,17 @@ function formatDuration(seconds: number): string {
 
 // Extract quote from description
 function extractQuote(description: string): string | undefined {
-  // Look for text between quotes at the start
+  // Look for text between quotes in strong tags at the start (most common pattern)
   const match = description.match(/<strong>"([^"]+)"<\/strong>/);
-  if (match) {
+  if (match && !match[1].includes('http') && !match[1].includes('linkedin')) {
     return match[1];
   }
-  // Try without strong tags
-  const match2 = description.match(/"([^"]{20,150})"/);
-  return match2 ? match2[1] : undefined;
+  // Try to find a quote that's NOT a URL - look for sentences that start with capital and end with period
+  const match2 = description.match(/"([A-Z][^"]{20,200}[.!?])"/);
+  if (match2 && !match2[1].includes('http') && !match2[1].includes('linkedin') && !match2[1].includes('.com')) {
+    return match2[1];
+  }
+  return undefined;
 }
 
 // Try to extract guest name from description
@@ -124,7 +127,7 @@ export async function fetchPodcastFeed(): Promise<PodcastFeed> {
       pubDate: item.pubDate || '',
       duration: durationStr,
       audioUrl: item.enclosure?.url || '',
-      imageUrl: item.image?.href || item.image?.$ ?.href || '/images/podcast-cover.jpg',
+      imageUrl: item.image?.href || (item.image as any)?.$?.href || '/images/podcast-cover.jpg',
       link: item.link || '',
       guest,
       company,

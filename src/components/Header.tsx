@@ -11,7 +11,6 @@ const navigation = [
   { name: "Master Facilitators", href: "https://community.theartofconstruction.net/", icon: Users, external: true },
   { name: "About Devon", href: "/about", icon: Info },
   { name: "Partners", href: "/partners", icon: Handshake },
-  { name: "Blog", href: "/blog", icon: Newspaper },
 ];
 
 export default function Header() {

@@ -469,7 +469,10 @@ export default function Home() {
                 className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all card-lift border border-rust/5"
               >
                 {/* Episode Header */}
-                <div className="relative h-48 bg-gradient-to-br from-charcoal to-aged-wood p-6">
+                <div 
+                  className="relative h-48 bg-gradient-to-br from-charcoal to-aged-wood p-6 bg-cover bg-center"
+                  style={{ backgroundImage: episode.imageUrl ? `linear-gradient(to bottom, rgba(44,44,44,0.3), rgba(44,44,44,0.85)), url(${episode.imageUrl})` : undefined }}
+                >
                   {episode.category && (
                     <div className="absolute top-4 left-4 px-3 py-1 bg-rust/90 text-white text-xs font-semibold rounded-full">
                       {episode.category}

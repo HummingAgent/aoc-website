@@ -20,10 +20,11 @@ export const metadata: Metadata = {
   keywords: ["construction podcast", "master facilitators", "Devon Tilly", "construction technology", "offsite construction", "prefab", "building industry"],
   icons: {
     icon: [
-      { url: "/images/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
       { url: "/images/favicon-192.png", sizes: "192x192", type: "image/png" },
     ],
-    apple: "/images/favicon-192.png",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "The Art of Construction",

@@ -244,7 +244,10 @@ export default function EpisodesPage() {
                   {viewMode === "grid" ? (
                     <>
                       {/* Grid View */}
-                      <div className="relative h-40 bg-gradient-to-br from-charcoal to-aged-wood p-4">
+                      <div 
+                        className="relative h-40 bg-gradient-to-br from-charcoal to-aged-wood p-4 bg-cover bg-center"
+                        style={{ backgroundImage: episode.imageUrl ? `linear-gradient(to bottom, rgba(44,44,44,0.3), rgba(44,44,44,0.9)), url(${episode.imageUrl})` : undefined }}
+                      >
                         {episode.category && (
                           <div className="absolute top-3 left-3 px-2 py-1 bg-rust/90 text-white text-xs font-semibold rounded-full">
                             {episode.category}
