@@ -25,10 +25,9 @@ const footerLinks = {
     { name: "Subscribe on Spotify", href: podcastPlatforms.spotify, external: true },
   ],
   community: [
-    { name: "Master Facilitators", href: "/community" },
-    { name: "Join the Tribe", href: "/community/join" },
-    { name: "Events", href: "/events" },
-    { name: "Resources", href: "/resources" },
+    { name: "Master Facilitators", href: "https://community.theartofconstruction.net/", external: true },
+    { name: "Join the Tribe", href: "https://community.theartofconstruction.net/", external: true },
+    { name: "Events", href: "https://community.theartofconstruction.net/", external: true },
   ],
   company: [
     { name: "About Devon", href: "/about" },
@@ -161,12 +160,23 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.community.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-white/60 hover:text-white transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
+                  {'external' in link && link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/60 hover:text-white transition-colors text-sm"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-white/60 hover:text-white transition-colors text-sm"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

@@ -210,13 +210,15 @@ export default function Home() {
                   Listen to Latest Episode
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link
-                  href="/community"
+                <a
+                  href="https://community.theartofconstruction.net/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-8 py-4 bg-white/10 border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 transition-all flex items-center justify-center gap-3"
                 >
                   <Users className="w-5 h-5" />
                   Join Master Facilitators
-                </Link>
+                </a>
               </div>
 
               {/* Stats Row */}
@@ -662,14 +664,16 @@ export default function Home() {
                 ))}
               </div>
 
-              <Link
-                href="/community"
+              <a
+                href="https://community.theartofconstruction.net/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-rust to-copper text-white font-semibold rounded-full hover:from-rust-dark hover:to-rust transition-all shadow-xl glow-rust"
               >
                 <Users className="w-5 h-5" />
                 Join the Tribe
                 <ArrowRight className="w-5 h-5" />
-              </Link>
+              </a>
             </motion.div>
 
             <motion.div

@@ -8,7 +8,7 @@ import { Menu, X, Headphones, Users, Info, Handshake, Mail, Newspaper } from "lu
 
 const navigation = [
   { name: "Episodes", href: "/episodes", icon: Headphones },
-  { name: "Master Facilitators", href: "/community", icon: Users },
+  { name: "Master Facilitators", href: "https://community.theartofconstruction.net/", icon: Users, external: true },
   { name: "About Devon", href: "/about", icon: Info },
   { name: "Partners", href: "/partners", icon: Handshake },
   { name: "Blog", href: "/blog", icon: Newspaper },
@@ -55,14 +55,27 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.1 * index }}
               >
-                <Link
-                  href={item.href}
-                  className="group relative px-4 py-2 text-sm font-medium text-charcoal hover:text-rust transition-colors rounded-lg flex items-center gap-2"
-                >
-                  <item.icon className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
-                  {item.name}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-rust transition-all group-hover:w-3/4 rounded-full" />
-                </Link>
+                {'external' in item && item.external ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative px-4 py-2 text-sm font-medium text-charcoal hover:text-rust transition-colors rounded-lg flex items-center gap-2"
+                  >
+                    <item.icon className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
+                    {item.name}
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-rust transition-all group-hover:w-3/4 rounded-full" />
+                  </a>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="group relative px-4 py-2 text-sm font-medium text-charcoal hover:text-rust transition-colors rounded-lg flex items-center gap-2"
+                  >
+                    <item.icon className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
+                    {item.name}
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-rust transition-all group-hover:w-3/4 rounded-full" />
+                  </Link>
+                )}
               </motion.div>
             ))}
           </motion.div>
@@ -118,15 +131,29 @@ export default function Header() {
           >
             <div className="px-4 py-6 space-y-3">
               {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="flex items-center gap-3 px-4 py-3 text-base font-medium text-charcoal hover:text-rust hover:bg-rust/5 rounded-lg transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <item.icon className="w-5 h-5" />
-                  {item.name}
-                </Link>
+                'external' in item && item.external ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-4 py-3 text-base font-medium text-charcoal hover:text-rust hover:bg-rust/5 rounded-lg transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="w-5 h-5" />
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="flex items-center gap-3 px-4 py-3 text-base font-medium text-charcoal hover:text-rust hover:bg-rust/5 rounded-lg transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="w-5 h-5" />
+                    {item.name}
+                  </Link>
+                )
               ))}
               <div className="pt-4 border-t border-rust/10 space-y-3">
                 <Link
