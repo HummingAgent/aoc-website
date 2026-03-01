@@ -229,7 +229,7 @@ export default function CommunityPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`relative bg-white rounded-3xl p-8 shadow-xl border-2 ${
+                className={`relative bg-white rounded-3xl p-8 shadow-xl border-2 flex flex-col ${
                   tier.popular ? "border-rust" : "border-rust/10"
                 }`}
               >
@@ -247,7 +247,7 @@ export default function CommunityPage() {
                   </div>
                   <p className="text-charcoal/60 text-sm">{tier.description}</p>
                 </div>
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 flex-grow">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-rust shrink-0 mt-0.5" />
@@ -259,7 +259,7 @@ export default function CommunityPage() {
                   href="https://community.theartofconstruction.net/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full py-3 rounded-full font-semibold transition-all flex items-center justify-center gap-2 ${
+                  className={`w-full py-3 rounded-full font-semibold transition-all flex items-center justify-center gap-2 mt-8 ${
                     tier.popular
                       ? "bg-gradient-to-r from-rust to-copper text-white hover:from-rust-dark hover:to-rust shadow-lg"
                       : "bg-charcoal text-white hover:bg-rust"
