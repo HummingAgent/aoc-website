@@ -113,7 +113,13 @@ export default function CommunityPage() {
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-charcoal to-aged-wood py-20 relative overflow-hidden">
+      <section className="relative py-20 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/hero-glass-house.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-charcoal/90 via-charcoal/80 to-charcoal/90" />
         <div className="absolute inset-0 beam-pattern opacity-10" />
         <motion.div
           initial={{ opacity: 0 }}
