@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { 
   Headphones, 
@@ -94,17 +95,13 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-rust to-copper rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl font-playfair">A</span>
-              </div>
-              <div>
-                <h2 className="text-xl font-bold font-playfair">
-                  The Art of Construction
-                </h2>
-                <p className="text-xs text-white/60 tracking-wider uppercase">
-                  Podcast & Community
-                </p>
-              </div>
+              <Image
+                src="/images/logo.png"
+                alt="The Art of Construction"
+                width={200}
+                height={67}
+                className="h-14 w-auto object-contain brightness-0 invert"
+              />
             </Link>
             <p className="text-white/70 mb-6 max-w-sm">
               We connect Systems Built Builders and affiliates to the right construction technologies and products. Join Devon Tilly and the tribe of Master Facilitators.

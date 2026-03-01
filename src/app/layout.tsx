@@ -18,17 +18,26 @@ export const metadata: Metadata = {
   title: "The Art of Construction | Podcast & Master Facilitators Community",
   description: "Join Devon Tilly and the tribe of Master Facilitators. We connect Systems Built Builders and affiliates to the right construction technologies and products. 600,000+ global listeners.",
   keywords: ["construction podcast", "master facilitators", "Devon Tilly", "construction technology", "offsite construction", "prefab", "building industry"],
+  icons: {
+    icon: [
+      { url: "/images/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/favicon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/images/favicon-192.png",
+  },
   openGraph: {
     title: "The Art of Construction",
     description: "The #1 Construction Industry Podcast & Community",
     type: "website",
     locale: "en_US",
     siteName: "The Art of Construction",
+    images: ["/images/podcast-cover.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "The Art of Construction",
     description: "The #1 Construction Industry Podcast & Community",
+    images: ["/images/podcast-cover.jpg"],
   },
 };
 

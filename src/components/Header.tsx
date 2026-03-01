@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Headphones, Users, Info, Handshake, Mail, Newspaper } from "lucide-react";
 
@@ -28,18 +29,14 @@ export default function Header() {
           >
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-rust to-copper rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-                  <span className="text-white font-bold text-xl font-playfair">A</span>
-                </div>
-                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-gold rounded-full animate-pulse" />
-              </div>
-              <div className="hidden sm:block">
-                <h1 className="text-xl font-bold text-charcoal font-playfair">
-                  The Art of Construction
-                </h1>
-                <p className="text-xs text-rust-light tracking-wider uppercase">
-                  Podcast & Community
-                </p>
+                <Image
+                  src="/images/logo.png"
+                  alt="The Art of Construction"
+                  width={180}
+                  height={60}
+                  className="h-12 w-auto object-contain"
+                  priority
+                />
               </div>
             </Link>
           </motion.div>
