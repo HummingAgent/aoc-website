@@ -196,6 +196,35 @@ export default function AudioPlayer({ audioUrl, title, episodeNumber, guest, onC
             className="w-20 h-1 bg-white/20 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:cursor-pointer"
           />
         </div>
+
+        {/* Platform Links */}
+        <div className="hidden lg:flex items-center gap-3">
+          <span className="text-white/40 text-xs">Also on:</span>
+          <a
+            href="https://podcasts.apple.com/us/podcast/the-art-of-construction/id932645265"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 py-1 bg-white/10 rounded-full text-white/70 text-xs hover:bg-white/20 hover:text-white transition-colors"
+          >
+            Apple
+          </a>
+          <a
+            href="https://open.spotify.com/show/7BlCk55C41hoPZrs7GqSeB"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 py-1 bg-white/10 rounded-full text-white/70 text-xs hover:bg-white/20 hover:text-white transition-colors"
+          >
+            Spotify
+          </a>
+          <a
+            href="https://www.youtube.com/@theartofconstruction"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 py-1 bg-white/10 rounded-full text-white/70 text-xs hover:bg-white/20 hover:text-white transition-colors"
+          >
+            YouTube
+          </a>
+        </div>
       </div>
     </div>
   );
