@@ -138,7 +138,7 @@ export default function PartnersPage() {
             </div>
             <div className="flex items-center justify-center gap-4 mb-2">
               <Image
-                src="/images/hummingagent-logo.svg"
+                src="/images/hummingagent-bird.png"
                 alt="HummingAgent"
                 width={60}
                 height={60}

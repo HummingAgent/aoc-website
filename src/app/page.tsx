@@ -770,7 +770,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-4 mb-4">
                   <Image
-                    src="/images/hummingagent-logo.svg"
+                    src="/images/hummingagent-bird.png"
                     alt="HummingAgent"
                     width={48}
                     height={48}
@@ -796,7 +796,7 @@ export default function Home() {
               <div className="flex items-center justify-center">
                 <div className="w-48 h-48 bg-gradient-to-br from-rust/20 to-copper/20 rounded-full flex items-center justify-center">
                   <Image
-                    src="/images/hummingagent-logo.svg"
+                    src="/images/hummingagent-bird.png"
                     alt="HummingAgent"
                     width={128}
                     height={128}

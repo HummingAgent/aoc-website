@@ -219,11 +219,11 @@ export default function Footer() {
                 className="flex items-center gap-1.5 text-rust hover:text-copper transition-colors font-medium"
               >
                 <Image
-                  src="/images/hummingagent-logo.svg"
+                  src="/images/hummingagent-bird.png"
                   alt="HummingAgent"
-                  width={20}
-                  height={20}
-                  className="w-5 h-5"
+                  width={24}
+                  height={24}
+                  className="w-6 h-6"
                 />
                 HummingAgent AI
               </a>
