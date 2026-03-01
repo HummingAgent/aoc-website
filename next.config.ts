@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '*.audioboom.com',
+        hostname: 'audioboom.com',
       },
     ],
   },
