@@ -1,7 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   Play, 
   Headphones, 
@@ -16,42 +18,24 @@ import {
   Zap,
   Globe,
   Star,
-  ChevronRight
+  ChevronRight,
+  ExternalLink
 } from "lucide-react";
 
-// Sample episode data - in production, this would come from a CMS or API
-const latestEpisodes = [
-  {
-    id: 387,
-    title: "Know Your Operating Principles",
-    guest: "Lora Lapiz",
-    company: "Defy Logik",
-    date: "February 26, 2026",
-    duration: "45 min",
-    quote: "Presence is your invisible safety protocol.",
-    category: "Leadership",
-  },
-  {
-    id: 386,
-    title: "Build Better with Kahua",
-    guest: "AJ Waters",
-    company: "Kahua",
-    date: "February 12, 2026",
-    duration: "52 min",
-    quote: "We have to have the courage to innovate when it comes to construction.",
-    category: "Technology",
-  },
-  {
-    id: 385,
-    title: "Rebuilding from Trauma",
-    guest: "Special Episode",
-    company: "",
-    date: "January 29, 2026",
-    duration: "38 min",
-    quote: "Your foundation can crack. At some point you're going to have to rebuild.",
-    category: "Mental Health",
-  },
-];
+interface Episode {
+  id: number;
+  title: string;
+  description: string;
+  pubDate: string;
+  duration: string;
+  audioUrl: string;
+  imageUrl: string;
+  link: string;
+  guest?: string;
+  company?: string;
+  quote?: string;
+  category?: string;
+}
 
 const stats = [
   { label: "Global Listeners", value: "600K+", icon: Globe },
@@ -68,6 +52,35 @@ const categories = [
 ];
 
 export default function Home() {
+  const [latestEpisodes, setLatestEpisodes] = useState<Episode[]>([]);
+  const [totalEpisodes, setTotalEpisodes] = useState(387);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchEpisodes() {
+      try {
+        const res = await fetch('/api/episodes');
+        const data = await res.json();
+        setLatestEpisodes((data.episodes || []).slice(0, 3));
+        setTotalEpisodes(data.episodes?.length || 387);
+      } catch (error) {
+        console.error('Failed to fetch episodes:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchEpisodes();
+  }, []);
+
+  const formatDate = (dateStr: string) => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+  };
+
   return (
     <div className="relative">
       {/* Hero Section */}
@@ -298,7 +311,26 @@ export default function Home() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {latestEpisodes.map((episode, index) => (
+            {loading ? (
+              // Loading skeleton
+              [...Array(3)].map((_, i) => (
+                <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-lg animate-pulse">
+                  <div className="h-48 bg-gray-200" />
+                  <div className="p-6 space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-gray-200" />
+                      <div className="space-y-2">
+                        <div className="h-4 bg-gray-200 rounded w-24" />
+                        <div className="h-3 bg-gray-200 rounded w-16" />
+                      </div>
+                    </div>
+                    <div className="h-4 bg-gray-200 rounded w-full" />
+                    <div className="h-4 bg-gray-200 rounded w-3/4" />
+                  </div>
+                </div>
+              ))
+            ) : (
+              latestEpisodes.map((episode, index) => (
               <motion.article
                 key={episode.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -309,9 +341,11 @@ export default function Home() {
               >
                 {/* Episode Header */}
                 <div className="relative h-48 bg-gradient-to-br from-charcoal to-aged-wood p-6">
-                  <div className="absolute top-4 left-4 px-3 py-1 bg-rust/90 text-white text-xs font-semibold rounded-full">
-                    {episode.category}
-                  </div>
+                  {episode.category && (
+                    <div className="absolute top-4 left-4 px-3 py-1 bg-rust/90 text-white text-xs font-semibold rounded-full">
+                      {episode.category}
+                    </div>
+                  )}
                   <div className="absolute bottom-4 left-4 right-4">
                     <div className="text-rust-light text-sm mb-1">Episode {episode.id}</div>
                     <h3 className="text-xl font-bold text-white font-playfair line-clamp-2">
@@ -319,53 +353,66 @@ export default function Home() {
                     </h3>
                   </div>
                   {/* Play Button Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="w-16 h-16 rounded-full bg-rust/90 flex items-center justify-center shadow-xl">
+                  <a 
+                    href={episode.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div className="w-16 h-16 rounded-full bg-rust/90 flex items-center justify-center shadow-xl hover:bg-rust transition-colors">
                       <Play className="w-7 h-7 text-white fill-white ml-1" />
                     </div>
-                  </div>
+                  </a>
                 </div>
 
                 {/* Episode Body */}
                 <div className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-rust/10 flex items-center justify-center">
-                      <Mic2 className="w-5 h-5 text-rust" />
+                  {episode.guest && (
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-full bg-rust/10 flex items-center justify-center">
+                        <Mic2 className="w-5 h-5 text-rust" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-charcoal">{episode.guest}</div>
+                        {episode.company && (
+                          <div className="text-sm text-charcoal/60">{episode.company}</div>
+                        )}
+                      </div>
                     </div>
-                    <div>
-                      <div className="font-semibold text-charcoal">{episode.guest}</div>
-                      {episode.company && (
-                        <div className="text-sm text-charcoal/60">{episode.company}</div>
-                      )}
-                    </div>
-                  </div>
+                  )}
 
-                  <blockquote className="text-charcoal/70 italic text-sm mb-4 line-clamp-2">
-                    "{episode.quote}"
-                  </blockquote>
+                  {episode.quote && (
+                    <blockquote className="text-charcoal/70 italic text-sm mb-4 line-clamp-2">
+                      "{episode.quote}"
+                    </blockquote>
+                  )}
 
                   <div className="flex items-center justify-between pt-4 border-t border-rust/10">
                     <div className="flex items-center gap-4 text-sm text-charcoal/60">
                       <span className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
-                        {episode.date}
+                        {formatDate(episode.pubDate)}
                       </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        {episode.duration}
-                      </span>
+                      {episode.duration && (
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          {episode.duration}
+                        </span>
+                      )}
                     </div>
-                    <Link
-                      href={`/episodes/${episode.id}`}
+                    <a
+                      href={episode.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-rust font-medium text-sm hover:text-rust-dark flex items-center gap-1 group/link"
                     >
                       Listen
-                      <ChevronRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                    </Link>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
                 </div>
               </motion.article>
-            ))}
+            )))}
           </div>
 
           <motion.div
@@ -380,7 +427,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-8 py-4 bg-charcoal text-white font-semibold rounded-full hover:bg-rust transition-colors shadow-lg"
             >
               <Headphones className="w-5 h-5" />
-              View All 387+ Episodes
+              View All {totalEpisodes}+ Episodes
               <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>
