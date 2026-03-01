@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   Mail, 
   CheckCircle, 
@@ -41,6 +42,16 @@ export default function SubscribePage() {
     <div className="min-h-screen bg-cream">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-charcoal to-aged-wood py-20 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/devon-tilly-contact.jpg"
+            alt="Devon Tilly"
+            fill
+            className="object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/90 to-charcoal/70" />
+        </div>
         <div className="absolute inset-0 beam-pattern opacity-10" />
         <motion.div
           initial={{ opacity: 0 }}

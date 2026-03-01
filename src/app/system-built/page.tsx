@@ -104,16 +104,31 @@ const partners = [
 export default function SystemBuiltPage() {
   return (
     <div className="min-h-screen bg-cream">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-charcoal to-aged-wood py-20 relative overflow-hidden">
-        <div className="absolute inset-0 beam-pattern opacity-10" />
+      {/* Hero Section with Video */}
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/system-built-hero.mp4" type="video/mp4" />
+          </video>
+          {/* Dark overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-charcoal/80 via-charcoal/70 to-charcoal/80" />
+        </div>
+        
+        <div className="absolute inset-0 beam-pattern opacity-10 z-[1]" />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.1 }}
-          className="absolute top-20 left-20 w-96 h-96 bg-rust rounded-full blur-[150px]"
+          className="absolute top-20 left-20 w-96 h-96 bg-rust rounded-full blur-[150px] z-[1]"
         />
         
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
