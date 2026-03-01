@@ -249,9 +249,20 @@ export default function Home() {
                 <audio ref={audioRef} src={featuredEpisode.audioUrl} preload="metadata" />
               )}
               
-              <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 shadow-2xl">
+              <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                {/* Episode Image */}
+                {featuredEpisode?.imageUrl && (
+                  <div 
+                    className="h-48 bg-cover bg-center"
+                    style={{ 
+                      backgroundImage: `linear-gradient(to bottom, rgba(44,44,44,0.2), rgba(44,44,44,0.9)), url(${featuredEpisode.imageUrl})` 
+                    }}
+                  />
+                )}
+                
+                <div className="p-8">
                 {/* Now Playing Badge */}
-                <div className="absolute -top-4 left-8 px-4 py-2 bg-rust text-white text-sm font-semibold rounded-full flex items-center gap-2">
+                <div className="absolute top-4 left-8 px-4 py-2 bg-rust text-white text-sm font-semibold rounded-full flex items-center gap-2 z-10">
                   <span className="relative flex h-2 w-2">
                     {isPlaying ? (
                       <>
@@ -266,7 +277,7 @@ export default function Home() {
                 </div>
 
                 {/* Episode Info */}
-                <div className="mt-4 mb-8">
+                <div className="mb-8">
                   {featuredEpisode ? (
                     <>
                       <div className="flex items-center gap-2 text-rust-light text-sm mb-2">
@@ -392,6 +403,7 @@ export default function Home() {
                       YouTube
                     </a>
                   </div>
+                </div>
                 </div>
               </div>
 
