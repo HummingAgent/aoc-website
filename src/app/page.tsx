@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { 
   Play, 
+  Pause,
   Headphones, 
   Users, 
   Mic2, 
@@ -19,7 +20,9 @@ import {
   Globe,
   Star,
   ChevronRight,
-  ExternalLink
+  ExternalLink,
+  SkipBack,
+  SkipForward
 } from "lucide-react";
 
 interface Episode {
@@ -55,6 +58,13 @@ export default function Home() {
   const [latestEpisodes, setLatestEpisodes] = useState<Episode[]>([]);
   const [totalEpisodes, setTotalEpisodes] = useState(387);
   const [loading, setLoading] = useState(true);
+  
+  // Audio player state
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [audioLoading, setAudioLoading] = useState(false);
 
   useEffect(() => {
     async function fetchEpisodes() {
@@ -72,6 +82,56 @@ export default function Home() {
     fetchEpisodes();
   }, []);
 
+  // Audio player controls
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
+    const handleDurationChange = () => setDuration(audio.duration);
+    const handleEnded = () => setIsPlaying(false);
+    const handleCanPlay = () => setAudioLoading(false);
+    const handleWaiting = () => setAudioLoading(true);
+
+    audio.addEventListener("timeupdate", handleTimeUpdate);
+    audio.addEventListener("durationchange", handleDurationChange);
+    audio.addEventListener("ended", handleEnded);
+    audio.addEventListener("canplay", handleCanPlay);
+    audio.addEventListener("waiting", handleWaiting);
+
+    return () => {
+      audio.removeEventListener("timeupdate", handleTimeUpdate);
+      audio.removeEventListener("durationchange", handleDurationChange);
+      audio.removeEventListener("ended", handleEnded);
+      audio.removeEventListener("canplay", handleCanPlay);
+      audio.removeEventListener("waiting", handleWaiting);
+    };
+  }, [latestEpisodes]);
+
+  const togglePlay = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  const skip = (seconds: number) => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.currentTime = Math.max(0, Math.min(audio.currentTime + seconds, duration));
+  };
+
+  const formatTime = (time: number) => {
+    if (isNaN(time)) return "0:00";
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  };
+
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr);
     return date.toLocaleDateString('en-US', { 
@@ -80,6 +140,8 @@ export default function Home() {
       day: 'numeric' 
     });
   };
+
+  const featuredEpisode = latestEpisodes[0];
 
   return (
     <div className="relative">
@@ -182,70 +244,119 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative"
             >
+              {/* Hidden Audio Element */}
+              {featuredEpisode && (
+                <audio ref={audioRef} src={featuredEpisode.audioUrl} preload="metadata" />
+              )}
+              
               <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 shadow-2xl">
                 {/* Now Playing Badge */}
                 <div className="absolute -top-4 left-8 px-4 py-2 bg-rust text-white text-sm font-semibold rounded-full flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                    {isPlaying ? (
+                      <>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                      </>
+                    ) : (
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-white/50"></span>
+                    )}
                   </span>
-                  Now Playing
+                  {isPlaying ? "Now Playing" : "Latest Episode"}
                 </div>
 
                 {/* Episode Info */}
                 <div className="mt-4 mb-8">
-                  <div className="flex items-center gap-2 text-rust-light text-sm mb-2">
-                    <span className="px-2 py-1 bg-rust/20 rounded">Episode 387</span>
-                    <span>•</span>
-                    <span>Leadership</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white font-playfair mb-2">
-                    Know Your Operating Principles
-                  </h3>
-                  <p className="text-white/60">
-                    with Lora Lapiz of Defy Logik
-                  </p>
+                  {featuredEpisode ? (
+                    <>
+                      <div className="flex items-center gap-2 text-rust-light text-sm mb-2">
+                        <span className="px-2 py-1 bg-rust/20 rounded">Episode {featuredEpisode.id}</span>
+                        {featuredEpisode.category && (
+                          <>
+                            <span>•</span>
+                            <span>{featuredEpisode.category}</span>
+                          </>
+                        )}
+                      </div>
+                      <h3 className="text-2xl font-bold text-white font-playfair mb-2">
+                        {featuredEpisode.title}
+                      </h3>
+                      {featuredEpisode.guest && (
+                        <p className="text-white/60">
+                          with {featuredEpisode.guest}{featuredEpisode.company && ` of ${featuredEpisode.company}`}
+                        </p>
+                      )}
+                    </>
+                  ) : (
+                    <div className="animate-pulse space-y-3">
+                      <div className="h-6 bg-white/10 rounded w-32" />
+                      <div className="h-8 bg-white/10 rounded w-full" />
+                      <div className="h-4 bg-white/10 rounded w-48" />
+                    </div>
+                  )}
                 </div>
 
                 {/* Quote */}
-                <blockquote className="relative pl-4 border-l-2 border-rust mb-8">
-                  <p className="text-white/80 italic">
-                    "Presence is your invisible safety protocol."
-                  </p>
-                </blockquote>
+                {featuredEpisode?.quote && (
+                  <blockquote className="relative pl-4 border-l-2 border-rust mb-8">
+                    <p className="text-white/80 italic">
+                      "{featuredEpisode.quote}"
+                    </p>
+                  </blockquote>
+                )}
 
                 {/* Player Controls */}
                 <div className="space-y-4">
                   {/* Progress Bar */}
                   <div className="space-y-2">
-                    <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: "35%" }}
-                        transition={{ duration: 1, delay: 1 }}
-                        className="h-full bg-gradient-to-r from-rust to-copper rounded-full"
-                      />
-                    </div>
+                    <input
+                      type="range"
+                      min={0}
+                      max={duration || 100}
+                      value={currentTime}
+                      onChange={(e) => {
+                        const audio = audioRef.current;
+                        if (audio) {
+                          audio.currentTime = parseFloat(e.target.value);
+                          setCurrentTime(parseFloat(e.target.value));
+                        }
+                      }}
+                      className="w-full h-2 bg-white/10 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-rust [&::-webkit-slider-thumb]:cursor-pointer"
+                    />
                     <div className="flex justify-between text-xs text-white/50">
-                      <span>15:42</span>
-                      <span>45:00</span>
+                      <span>{formatTime(currentTime)}</span>
+                      <span>{formatTime(duration)}</span>
                     </div>
                   </div>
 
                   {/* Controls */}
                   <div className="flex items-center justify-center gap-6">
-                    <button className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                      <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 20L9 12l10-8v16zM7 20V4H5v16h2z" />
-                      </svg>
+                    <button 
+                      onClick={() => skip(-15)}
+                      className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                      title="Skip back 15 seconds"
+                    >
+                      <SkipBack className="w-5 h-5 text-white" />
                     </button>
-                    <button className="w-16 h-16 rounded-full bg-gradient-to-r from-rust to-copper flex items-center justify-center hover:from-rust-dark hover:to-rust transition-all shadow-lg glow-rust">
-                      <Play className="w-7 h-7 text-white fill-white ml-1" />
+                    <button 
+                      onClick={togglePlay}
+                      disabled={!featuredEpisode || audioLoading}
+                      className="w-16 h-16 rounded-full bg-gradient-to-r from-rust to-copper flex items-center justify-center hover:from-rust-dark hover:to-rust transition-all shadow-lg glow-rust disabled:opacity-50"
+                    >
+                      {audioLoading ? (
+                        <div className="w-7 h-7 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      ) : isPlaying ? (
+                        <Pause className="w-7 h-7 text-white fill-white" />
+                      ) : (
+                        <Play className="w-7 h-7 text-white fill-white ml-1" />
+                      )}
                     </button>
-                    <button className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                      <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M5 4l10 8-10 8V4zm12 0v16h2V4h-2z" />
-                      </svg>
+                    <button 
+                      onClick={() => skip(30)}
+                      className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                      title="Skip forward 30 seconds"
+                    >
+                      <SkipForward className="w-5 h-5 text-white" />
                     </button>
                   </div>
                 </div>
@@ -256,14 +367,30 @@ export default function Home() {
                     Also available on
                   </p>
                   <div className="flex justify-center gap-4">
-                    {["Apple Podcasts", "Spotify", "YouTube"].map((platform) => (
-                      <button
-                        key={platform}
-                        className="px-4 py-2 bg-white/5 rounded-lg text-white/70 text-sm hover:bg-white/10 transition-colors"
-                      >
-                        {platform}
-                      </button>
-                    ))}
+                    <a
+                      href="https://podcasts.apple.com/us/podcast/the-art-of-construction/id932645265"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-white/5 rounded-lg text-white/70 text-sm hover:bg-white/10 transition-colors"
+                    >
+                      Apple Podcasts
+                    </a>
+                    <a
+                      href="https://open.spotify.com/show/7BlCk55C41hoPZrs7GqSeB"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-white/5 rounded-lg text-white/70 text-sm hover:bg-white/10 transition-colors"
+                    >
+                      Spotify
+                    </a>
+                    <a
+                      href="https://www.youtube.com/@theartofconstruction"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-white/5 rounded-lg text-white/70 text-sm hover:bg-white/10 transition-colors"
+                    >
+                      YouTube
+                    </a>
                   </div>
                 </div>
               </div>
