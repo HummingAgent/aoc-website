@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import Image from "next/image";
 import { 
   Users, 
   Star, 
@@ -11,7 +10,8 @@ import {
   MessageSquare, 
   ArrowRight,
   ExternalLink,
-  Building2
+  Building2,
+  CheckCircle
 } from "lucide-react";
 
 const benefits = [
@@ -34,6 +34,70 @@ const benefits = [
     icon: Building2,
     title: "System Built Resources",
     description: "Tools, guides, and resources for offsite construction excellence.",
+  },
+];
+
+const tiers = [
+  {
+    name: "Community Member",
+    price: "Free",
+    description: "Join the tribe and get started",
+    features: [
+      "Access to community forums",
+      "Weekly newsletter",
+      "Public event invitations",
+      "Episode discussions",
+    ],
+    cta: "Join Free",
+    popular: false,
+  },
+  {
+    name: "Master Facilitator",
+    price: "$49/mo",
+    description: "For serious construction professionals",
+    features: [
+      "Everything in Community",
+      "Private mastermind groups",
+      "Monthly virtual meetups",
+      "1-on-1 networking matches",
+      "Early episode access",
+      "Exclusive resources",
+    ],
+    cta: "Become a Master Facilitator",
+    popular: true,
+  },
+  {
+    name: "System Builder",
+    price: "$199/mo",
+    description: "For offsite construction leaders",
+    features: [
+      "Everything in Master Facilitator",
+      "Quarterly strategy calls",
+      "Featured in episode spotlights",
+      "Annual summit VIP access",
+      "Direct line to Devon",
+      "Partner network access",
+    ],
+    cta: "Apply Now",
+    popular: false,
+  },
+];
+
+const testimonials = [
+  {
+    quote: "The connections I've made through AOC have transformed my business. It's not just a community—it's a family.",
+    name: "Michael Torres",
+    title: "Founder, Prefab Innovations",
+  },
+  {
+    quote: "Devon has created something special. The Master Facilitators program gave me the network I needed to scale.",
+    name: "Sarah Chen",
+    title: "CEO, BuildTech Solutions",
+  },
+  {
+    quote: "Being part of this tribe has opened doors I never knew existed. The ROI is immeasurable.",
+    name: "James Blackwood",
+    title: "Owner, Blackwood Construction",
   },
 ];
 
@@ -139,7 +203,78 @@ export default function CommunityPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Pricing Section */}
+      <section id="pricing" className="py-20 bg-cream">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal font-playfair mb-4">
+              Choose Your <span className="text-gradient">Path</span>
+            </h2>
+            <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+              From free community access to exclusive system builder perks.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {tiers.map((tier, index) => (
+              <motion.div
+                key={tier.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`relative bg-white rounded-3xl p-8 shadow-xl border-2 ${
+                  tier.popular ? "border-rust" : "border-rust/10"
+                }`}
+              >
+                {tier.popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-rust text-white text-sm font-semibold rounded-full">
+                    Most Popular
+                  </div>
+                )}
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold text-charcoal font-playfair mb-2">
+                    {tier.name}
+                  </h3>
+                  <div className="text-4xl font-bold text-rust mb-2">
+                    {tier.price}
+                  </div>
+                  <p className="text-charcoal/60 text-sm">{tier.description}</p>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  {tier.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-rust shrink-0 mt-0.5" />
+                      <span className="text-charcoal/70 text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="https://community.theartofconstruction.net/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-3 rounded-full font-semibold transition-all flex items-center justify-center gap-2 ${
+                    tier.popular
+                      ? "bg-gradient-to-r from-rust to-copper text-white hover:from-rust-dark hover:to-rust shadow-lg"
+                      : "bg-charcoal text-white hover:bg-rust"
+                  }`}
+                >
+                  {tier.cta}
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
       <section className="py-20 bg-gradient-to-br from-charcoal to-aged-wood relative overflow-hidden">
         <div className="absolute inset-0 beam-pattern opacity-10" />
         
@@ -157,23 +292,7 @@ export default function CommunityPage() {
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "The connections I've made through AOC have transformed my business. It's not just a community—it's a family.",
-                name: "Michael Torres",
-                title: "Founder, Prefab Innovations",
-              },
-              {
-                quote: "Devon has created something special. The Master Facilitators program gave me the network I needed to scale.",
-                name: "Sarah Chen",
-                title: "CEO, BuildTech Solutions",
-              },
-              {
-                quote: "Being part of this tribe has opened doors I never knew existed. The ROI is immeasurable.",
-                name: "James Blackwood",
-                title: "Owner, Blackwood Construction",
-              },
-            ].map((testimonial, index) => (
+            {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.name}
                 initial={{ opacity: 0, y: 20 }}

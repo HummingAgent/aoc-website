@@ -25,14 +25,14 @@ const footerLinks = {
     { name: "Subscribe on Spotify", href: podcastPlatforms.spotify, external: true },
   ],
   community: [
-    { name: "Master Facilitators", href: "https://community.theartofconstruction.net/", external: true },
+    { name: "Master Facilitators", href: "/community" },
     { name: "Join the Tribe", href: "https://community.theartofconstruction.net/", external: true },
     { name: "Events", href: "https://community.theartofconstruction.net/", external: true },
   ],
   company: [
     { name: "About Devon", href: "/about" },
     { name: "Partners", href: "/partners" },
-    { name: "Sponsorships", href: "/sponsors" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ],
 };

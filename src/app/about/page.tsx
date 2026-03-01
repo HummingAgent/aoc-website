@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   Mic2, 
   Users, 
@@ -12,7 +13,9 @@ import {
   Quote,
   Headphones,
   Building2,
-  Lightbulb
+  Lightbulb,
+  Instagram,
+  Linkedin
 } from "lucide-react";
 
 const milestones = [
@@ -86,7 +89,7 @@ export default function AboutPage() {
               <p className="text-lg text-white/70 mb-8">
                 Informational entrepreneur, podcast host, and leader of the Master Facilitators tribe. Devon has dedicated his career to connecting builders, innovators, and industry leaders across the construction world.
               </p>
-              <div className="flex flex-wrap gap-6">
+              <div className="flex flex-wrap gap-6 mb-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-white">387+</div>
                   <div className="text-white/60 text-sm">Episodes</div>
@@ -100,6 +103,24 @@ export default function AboutPage() {
                   <div className="text-white/60 text-sm">Years</div>
                 </div>
               </div>
+              <div className="flex gap-4">
+                <a
+                  href="https://www.linkedin.com/in/devon-tilly-5a407a20/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-rust transition-colors"
+                >
+                  <Linkedin className="w-5 h-5 text-white" />
+                </a>
+                <a
+                  href="https://www.instagram.com/devontilly/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-rust transition-colors"
+                >
+                  <Instagram className="w-5 h-5 text-white" />
+                </a>
+              </div>
             </motion.div>
 
             <motion.div
@@ -108,17 +129,23 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-rust/20 to-copper/20 rounded-3xl p-8 backdrop-blur-xl border border-white/10">
-                <div className="w-48 h-48 mx-auto bg-gradient-to-br from-rust to-copper rounded-full mb-6 flex items-center justify-center">
-                  <Mic2 className="w-24 h-24 text-white" />
+              <div className="bg-gradient-to-br from-rust/20 to-copper/20 rounded-3xl p-4 backdrop-blur-xl border border-white/10">
+                <div className="relative aspect-square rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/devon-tilly.jpg"
+                    alt="Devon Tilly - Host of The Art of Construction"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
-                <blockquote className="text-center">
-                  <Quote className="w-8 h-8 text-rust mx-auto mb-4" />
-                  <p className="text-white/80 italic text-lg mb-4">
+                <div className="mt-4 p-4 bg-white/5 rounded-xl">
+                  <Quote className="w-6 h-6 text-rust mb-2" />
+                  <p className="text-white/80 italic text-lg">
                     "Every builder has a story. My job is to help them tell it."
                   </p>
-                  <cite className="text-rust-light font-semibold">— Devon Tilly</cite>
-                </blockquote>
+                  <cite className="text-rust-light font-semibold mt-2 block">— Devon Tilly</cite>
+                </div>
               </div>
             </motion.div>
           </div>
