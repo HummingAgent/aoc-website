@@ -4,14 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Headphones, Users, Info, Handshake, Mail, Newspaper } from "lucide-react";
+import { Menu, X, Headphones, Users, Info, Handshake, Mail, Newspaper, Building2 } from "lucide-react";
 
 const navigation = [
   { name: "Episodes", href: "/episodes", icon: Headphones },
   { name: "Master Facilitators", href: "/community", icon: Users },
+  { name: "System Built", href: "/system-built", icon: Building2 },
   { name: "About Devon", href: "/about", icon: Info },
   { name: "Partners", href: "/partners", icon: Handshake },
-  { name: "Blog", href: "/blog", icon: Newspaper },
 ];
 
 export default function Header() {
