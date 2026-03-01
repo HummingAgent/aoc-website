@@ -290,12 +290,15 @@ export default function Home() {
               <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
                 {/* Episode Image */}
                 {featuredEpisode?.imageUrl && (
-                  <div 
-                    className="h-64 bg-cover bg-center"
-                    style={{ 
-                      backgroundImage: `linear-gradient(to bottom, rgba(44,44,44,0.1), rgba(44,44,44,0.95)), url(${featuredEpisode.imageUrl})` 
-                    }}
-                  />
+                  <div className="relative h-72 bg-charcoal">
+                    <Image
+                      src={featuredEpisode.imageUrl}
+                      alt={featuredEpisode.title}
+                      fill
+                      className="object-contain"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-transparent to-transparent" />
+                  </div>
                 )}
                 
                 <div className="p-8">
