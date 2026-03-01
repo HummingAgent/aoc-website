@@ -245,7 +245,7 @@ export default function EpisodesPage() {
                     <>
                       {/* Grid View */}
                       <div 
-                        className="relative h-40 bg-gradient-to-br from-charcoal to-aged-wood p-4 bg-cover bg-center"
+                        className="relative h-40 bg-gradient-to-br from-charcoal to-aged-wood p-4 bg-cover bg-top"
                         style={{ backgroundImage: episode.imageUrl ? `linear-gradient(to bottom, rgba(44,44,44,0.3), rgba(44,44,44,0.9)), url(${episode.imageUrl})` : undefined }}
                       >
                         {episode.category && (
