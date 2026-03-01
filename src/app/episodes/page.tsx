@@ -249,9 +249,16 @@ export default function EpisodesPage() {
                         style={{ backgroundImage: episode.imageUrl ? `linear-gradient(to bottom, rgba(44,44,44,0.3), rgba(44,44,44,0.9)), url(${episode.imageUrl})` : undefined }}
                       >
                         {episode.category && (
-                          <div className="absolute top-3 left-3 px-2 py-1 bg-rust/90 text-white text-xs font-semibold rounded-full">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              setSelectedCategory(episode.category!);
+                            }}
+                            className="absolute top-3 left-3 px-2 py-1 bg-rust/90 text-white text-xs font-semibold rounded-full hover:bg-rust transition-colors cursor-pointer"
+                          >
                             {episode.category}
-                          </div>
+                          </button>
                         )}
                         {nowPlaying?.id === episode.id && (
                           <div className="absolute top-3 right-3 px-2 py-1 bg-green-500 text-white text-xs font-semibold rounded-full flex items-center gap-1">
@@ -332,9 +339,16 @@ export default function EpisodesPage() {
                       <div className="flex-1 p-5">
                         <div className="flex flex-wrap items-center gap-2 mb-2">
                           {episode.category && (
-                            <span className="px-2 py-1 bg-rust/10 text-rust text-xs font-semibold rounded-full">
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setSelectedCategory(episode.category!);
+                              }}
+                              className="px-2 py-1 bg-rust/10 text-rust text-xs font-semibold rounded-full hover:bg-rust/20 transition-colors cursor-pointer"
+                            >
                               {episode.category}
-                            </span>
+                            </button>
                           )}
                           {nowPlaying?.id === episode.id && (
                             <span className="px-2 py-1 bg-green-500/20 text-green-600 text-xs font-semibold rounded-full flex items-center gap-1">

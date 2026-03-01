@@ -253,7 +253,7 @@ export default function Home() {
                 {/* Episode Image */}
                 {featuredEpisode?.imageUrl && (
                   <div 
-                    className="h-48 bg-cover bg-center"
+                    className="h-48 bg-cover bg-top"
                     style={{ 
                       backgroundImage: `linear-gradient(to bottom, rgba(44,44,44,0.2), rgba(44,44,44,0.9)), url(${featuredEpisode.imageUrl})` 
                     }}
