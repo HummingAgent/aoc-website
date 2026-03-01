@@ -99,7 +99,7 @@ export default function Footer() {
                 alt="The Art of Construction"
                 width={200}
                 height={67}
-                className="h-14 w-auto object-contain brightness-0 invert"
+                className="h-14 w-auto object-contain"
               />
             </Link>
             <p className="text-white/70 mb-6 max-w-sm">
