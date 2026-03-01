@@ -37,7 +37,9 @@ const categoryMapping: Record<string, string> = {
   "prefabrication": "Prefabrication",
   "housing": "Housing",
   "indoor-outdoor-living": "Indoor-Outdoor Living",
-  "ai-series": "AI Series",
+  "ai-series": "Artificial Intelligence",
+  "artificial-intelligence": "Artificial Intelligence",
+  "mental-health": "Mental Health",
 };
 
 export default function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -56,8 +58,9 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
       try {
         const response = await fetch("/api/episodes");
         const data = await response.json();
-        // Filter by category
-        const filtered = data.filter((ep: Episode) => 
+        // Filter by category - API returns { episodes: [...] }
+        const allEpisodes = data.episodes || [];
+        const filtered = allEpisodes.filter((ep: Episode) => 
           ep.category?.toLowerCase() === categoryName.toLowerCase()
         );
         setEpisodes(filtered);

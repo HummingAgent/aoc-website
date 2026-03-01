@@ -48,10 +48,10 @@ const stats = [
 ];
 
 const categories = [
-  { name: "AI Series", count: 24, icon: Zap },
-  { name: "Prefabrication", count: 42, icon: Building2 },
-  { name: "Leadership", count: 67, icon: TrendingUp },
-  { name: "Technology", count: 89, icon: Hammer },
+  { name: "Business", count: 100, icon: TrendingUp },
+  { name: "Architecture", count: 98, icon: Building2 },
+  { name: "Technology", count: 95, icon: Hammer },
+  { name: "Artificial Intelligence", count: 15, icon: Zap },
 ];
 
 export default function Home() {
