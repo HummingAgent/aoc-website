@@ -267,7 +267,7 @@ export default function Home() {
                     transition={{ delay: 0.4 + index * 0.1 }}
                     className="text-center"
                   >
-                    <stat.icon className="w-6 h-6 text-rust mx-auto mb-2" />
+                    <stat.icon className="w-10 h-10 text-rust mx-auto mb-3 stroke-[1.5]" />
                     <div className="text-2xl md:text-3xl font-bold text-white">{stat.value}</div>
                     <div className="text-xs text-white/50 uppercase tracking-wider">{stat.label}</div>
                   </motion.div>
