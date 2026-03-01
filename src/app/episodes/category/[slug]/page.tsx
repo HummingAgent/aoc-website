@@ -228,7 +228,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
                         </div>
                         <button
                           onClick={() => setPlayingEpisode(episode)}
-                          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-rust/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform group-hover:scale-110"
+                          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-rust/90 rounded-full flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all transform md:group-hover:scale-110"
                         >
                           <Play className="w-6 h-6 text-white fill-white ml-1" />
                         </button>
@@ -283,7 +283,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
                         )}
                         <button
                           onClick={() => setPlayingEpisode(episode)}
-                          className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
                         >
                           <Play className="w-10 h-10 text-white fill-white" />
                         </button>

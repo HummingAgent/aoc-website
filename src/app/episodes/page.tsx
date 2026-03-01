@@ -287,10 +287,10 @@ export default function EpisodesPage() {
                             {episode.title}
                           </h3>
                         </div>
-                        {/* Play Button Overlay */}
+                        {/* Play Button Overlay - always visible on mobile, hover on desktop */}
                         <button 
                           onClick={() => playEpisode(episode)}
-                          className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="absolute inset-0 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
                         >
                           <div className="w-14 h-14 rounded-full bg-rust/90 flex items-center justify-center shadow-xl hover:bg-rust hover:scale-110 transition-all">
                             <Play className="w-6 h-6 text-white fill-white ml-1" />
@@ -344,7 +344,7 @@ export default function EpisodesPage() {
                         </div>
                         <button
                           onClick={() => playEpisode(episode)}
-                          className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="absolute inset-0 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
                         >
                           <div className="w-12 h-12 rounded-full bg-rust/90 flex items-center justify-center hover:scale-110 transition-all">
                             <Play className="w-5 h-5 text-white fill-white ml-0.5" />

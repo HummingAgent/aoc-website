@@ -541,10 +541,10 @@ export default function Home() {
                       {episode.title}
                     </h3>
                   </div>
-                  {/* Play Button Overlay */}
+                  {/* Play Button Overlay - always visible on mobile */}
                   <button 
                     onClick={() => setNowPlaying(episode)}
-                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute inset-0 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
                   >
                     <div className="w-16 h-16 rounded-full bg-rust/90 flex items-center justify-center shadow-xl hover:bg-rust hover:scale-110 transition-all">
                       <Play className="w-7 h-7 text-white fill-white ml-1" />
