@@ -29,12 +29,19 @@ export default function AudioPlayer({ audioUrl, title, episodeNumber, guest, onC
     const handleEnded = () => setIsPlaying(false);
     const handleCanPlay = () => setIsLoading(false);
     const handleWaiting = () => setIsLoading(true);
+    const handlePlay = () => {
+      setIsPlaying(true);
+      setIsLoading(false);
+    };
+    const handlePause = () => setIsPlaying(false);
 
     audio.addEventListener("timeupdate", handleTimeUpdate);
     audio.addEventListener("durationchange", handleDurationChange);
     audio.addEventListener("ended", handleEnded);
     audio.addEventListener("canplay", handleCanPlay);
     audio.addEventListener("waiting", handleWaiting);
+    audio.addEventListener("play", handlePlay);
+    audio.addEventListener("pause", handlePause);
 
     return () => {
       audio.removeEventListener("timeupdate", handleTimeUpdate);
@@ -42,19 +49,28 @@ export default function AudioPlayer({ audioUrl, title, episodeNumber, guest, onC
       audio.removeEventListener("ended", handleEnded);
       audio.removeEventListener("canplay", handleCanPlay);
       audio.removeEventListener("waiting", handleWaiting);
+      audio.removeEventListener("play", handlePlay);
+      audio.removeEventListener("pause", handlePause);
     };
   }, []);
 
-  const togglePlay = () => {
+  const togglePlay = async () => {
     const audio = audioRef.current;
     if (!audio) return;
 
     if (isPlaying) {
       audio.pause();
+      setIsPlaying(false);
     } else {
-      audio.play();
+      try {
+        setIsLoading(true);
+        await audio.play();
+        setIsPlaying(true);
+      } catch (error) {
+        console.error("Audio playback failed:", error);
+        setIsLoading(false);
+      }
     }
-    setIsPlaying(!isPlaying);
   };
 
   const toggleMute = () => {
@@ -100,7 +116,13 @@ export default function AudioPlayer({ audioUrl, title, episodeNumber, guest, onC
 
   return (
     <div className="bg-gradient-to-r from-charcoal to-aged-wood rounded-2xl p-4 md:p-6 shadow-xl">
-      <audio ref={audioRef} src={audioUrl} preload="metadata" />
+      <audio 
+        ref={audioRef} 
+        src={audioUrl} 
+        preload="metadata"
+        playsInline
+        webkit-playsinline="true"
+      />
       
       {/* Episode Info */}
       <div className="flex items-center gap-4 mb-4">
