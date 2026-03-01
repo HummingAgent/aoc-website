@@ -252,13 +252,13 @@ export default function PartnersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-rust/50 transition-colors"
+                className="bg-white rounded-2xl p-6 border border-rust/10 hover:border-rust/30 hover:shadow-xl transition-all"
               >
                 <div className="text-rust font-semibold mb-2">{tier.tier}</div>
-                <div className="text-3xl font-bold text-white mb-4">{tier.price}</div>
+                <div className="text-3xl font-bold text-charcoal mb-4">{tier.price}</div>
                 <ul className="space-y-2">
                   {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2 text-white/70 text-sm">
+                    <li key={feature} className="flex items-start gap-2 text-charcoal/70 text-sm">
                       <Star className="w-4 h-4 text-rust shrink-0 mt-0.5" />
                       {feature}
                     </li>
