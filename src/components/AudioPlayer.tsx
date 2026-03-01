@@ -119,9 +119,9 @@ export default function AudioPlayer({ audioUrl, title, episodeNumber, guest, onC
       <audio 
         ref={audioRef} 
         src={audioUrl} 
-        preload="metadata"
+        preload="auto"
         playsInline
-        webkit-playsinline="true"
+        crossOrigin="anonymous"
       />
       
       {/* Episode Info */}
