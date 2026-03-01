@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import AudioPlayer from "@/components/AudioPlayer";
 import { 
   Play, 
   Pause,
@@ -20,7 +21,6 @@ import {
   Globe,
   Star,
   ChevronRight,
-  ExternalLink,
   SkipBack,
   SkipForward
 } from "lucide-react";
@@ -58,6 +58,7 @@ export default function Home() {
   const [latestEpisodes, setLatestEpisodes] = useState<Episode[]>([]);
   const [totalEpisodes, setTotalEpisodes] = useState(387);
   const [loading, setLoading] = useState(true);
+  const [nowPlaying, setNowPlaying] = useState<Episode | null>(null);
   
   // Audio player state
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -145,6 +146,28 @@ export default function Home() {
 
   return (
     <div className="relative">
+      {/* Sticky Audio Player */}
+      <AnimatePresence>
+        {nowPlaying && (
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 100, opacity: 0 }}
+            className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-charcoal/95 backdrop-blur-lg border-t border-white/10"
+          >
+            <div className="max-w-4xl mx-auto">
+              <AudioPlayer
+                audioUrl={nowPlaying.audioUrl}
+                title={nowPlaying.title}
+                episodeNumber={nowPlaying.id}
+                guest={nowPlaying.guest}
+                onClose={() => setNowPlaying(null)}
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-charcoal via-aged-wood to-charcoal">
         {/* Animated Background Elements */}
@@ -495,16 +518,14 @@ export default function Home() {
                     </h3>
                   </div>
                   {/* Play Button Overlay */}
-                  <a 
-                    href={episode.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button 
+                    onClick={() => setNowPlaying(episode)}
                     className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                   >
-                    <div className="w-16 h-16 rounded-full bg-rust/90 flex items-center justify-center shadow-xl hover:bg-rust transition-colors">
+                    <div className="w-16 h-16 rounded-full bg-rust/90 flex items-center justify-center shadow-xl hover:bg-rust hover:scale-110 transition-all">
                       <Play className="w-7 h-7 text-white fill-white ml-1" />
                     </div>
-                  </a>
+                  </button>
                 </div>
 
                 {/* Episode Body */}
@@ -542,15 +563,13 @@ export default function Home() {
                         </span>
                       )}
                     </div>
-                    <a
-                      href={episode.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-rust font-medium text-sm hover:text-rust-dark flex items-center gap-1 group/link"
+                    <button
+                      onClick={() => setNowPlaying(episode)}
+                      className="text-rust font-medium text-sm hover:text-rust-dark flex items-center gap-1"
                     >
-                      Listen
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
+                      <Play className="w-3 h-3 fill-rust" />
+                      Play
+                    </button>
                   </div>
                 </div>
               </motion.article>
