@@ -253,9 +253,9 @@ export default function Home() {
                 {/* Episode Image */}
                 {featuredEpisode?.imageUrl && (
                   <div 
-                    className="h-48 bg-cover bg-top"
+                    className="h-64 bg-cover bg-center"
                     style={{ 
-                      backgroundImage: `linear-gradient(to bottom, rgba(44,44,44,0.2), rgba(44,44,44,0.9)), url(${featuredEpisode.imageUrl})` 
+                      backgroundImage: `linear-gradient(to bottom, rgba(44,44,44,0.1), rgba(44,44,44,0.95)), url(${featuredEpisode.imageUrl})` 
                     }}
                   />
                 )}
