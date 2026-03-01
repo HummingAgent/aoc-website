@@ -216,8 +216,15 @@ export default function Footer() {
                 href="https://hummingagent.ai" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-rust hover:text-copper transition-colors font-medium"
+                className="flex items-center gap-1.5 text-rust hover:text-copper transition-colors font-medium"
               >
+                <Image
+                  src="/images/hummingagent-logo.svg"
+                  alt="HummingAgent"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
                 HummingAgent AI
               </a>
             </p>

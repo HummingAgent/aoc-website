@@ -768,9 +768,18 @@ export default function Home() {
                   <Star className="w-4 h-4 fill-rust-light" />
                   Featured AI Partner
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white font-playfair mb-4">
-                  HummingAgent AI
-                </h3>
+                <div className="flex items-center gap-4 mb-4">
+                  <Image
+                    src="/images/hummingagent-logo.svg"
+                    alt="HummingAgent"
+                    width={48}
+                    height={48}
+                    className="w-12 h-12"
+                  />
+                  <h3 className="text-2xl md:text-3xl font-bold text-white font-playfair">
+                    HummingAgent AI
+                  </h3>
+                </div>
                 <p className="text-white/70 mb-6">
                   Revolutionizing construction businesses with AI-powered automation. From project management to customer communications, HummingAgent brings cutting-edge AI solutions to the construction industry.
                 </p>
@@ -786,9 +795,13 @@ export default function Home() {
               </div>
               <div className="flex items-center justify-center">
                 <div className="w-48 h-48 bg-gradient-to-br from-rust/20 to-copper/20 rounded-full flex items-center justify-center">
-                  <div className="w-32 h-32 bg-gradient-to-br from-rust to-copper rounded-2xl flex items-center justify-center shadow-2xl">
-                    <Zap className="w-16 h-16 text-white" />
-                  </div>
+                  <Image
+                    src="/images/hummingagent-logo.svg"
+                    alt="HummingAgent"
+                    width={128}
+                    height={128}
+                    className="w-32 h-32"
+                  />
                 </div>
               </div>
             </div>

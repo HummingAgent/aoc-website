@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   Zap, 
   ArrowRight, 
@@ -135,9 +136,18 @@ export default function PartnersPage() {
               <Star className="w-4 h-4 fill-gold" />
               Featured AI Partner
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-charcoal font-playfair">
-              {featuredPartner.name}
-            </h2>
+            <div className="flex items-center justify-center gap-4 mb-2">
+              <Image
+                src="/images/hummingagent-logo.svg"
+                alt="HummingAgent"
+                width={60}
+                height={60}
+                className="w-14 h-14"
+              />
+              <h2 className="text-3xl md:text-4xl font-bold text-charcoal font-playfair">
+                {featuredPartner.name}
+              </h2>
+            </div>
           </motion.div>
 
           <motion.div
