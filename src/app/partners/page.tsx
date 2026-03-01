@@ -34,39 +34,6 @@ const featuredPartner = {
   website: "https://hummingagent.ai",
 };
 
-const partners = [
-  {
-    name: "Autodesk",
-    category: "Construction Software",
-    description: "Industry-leading design and construction software solutions.",
-  },
-  {
-    name: "BuilderTrend",
-    category: "Project Management",
-    description: "Cloud-based construction management software for home builders and remodelers.",
-  },
-  {
-    name: "Kahua",
-    category: "Project Collaboration",
-    description: "Configurable construction program and project management platform.",
-  },
-  {
-    name: "Cultivate Advisors",
-    category: "Business Coaching",
-    description: "Business coaching and advisory services for construction professionals.",
-  },
-  {
-    name: "Ground Up Construct",
-    category: "Construction Media",
-    description: "Construction industry media and content platform.",
-  },
-  {
-    name: "Uneekor",
-    category: "Golf Technology",
-    description: "Premium indoor golf simulator technology for luxury homes.",
-  },
-];
-
 const sponsorshipTiers = [
   {
     tier: "Bronze",
@@ -229,49 +196,31 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* Other Partners */}
-      <section className="py-20 bg-cream">
+      {/* System Built Affiliates CTA */}
+      <section className="py-16 bg-cream">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="bg-gradient-to-r from-sand to-sand-light rounded-3xl p-8 md:p-12 text-center border border-rust/10"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-charcoal font-playfair mb-4">
-              Our <span className="text-gradient">Partners</span>
+            <Building2 className="w-12 h-12 text-rust mx-auto mb-4" />
+            <h2 className="text-2xl md:text-3xl font-bold text-charcoal font-playfair mb-4">
+              Looking for System Built Affiliates?
             </h2>
-            <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
-              Industry leaders who share our commitment to construction innovation.
+            <p className="text-charcoal/70 max-w-2xl mx-auto mb-6">
+              Explore our network of trusted construction technology and product partners driving innovation in offsite and system-built construction.
             </p>
+            <Link
+              href="/system-built"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-charcoal text-white font-semibold rounded-full hover:bg-rust transition-colors shadow-lg"
+            >
+              View System Built Affiliates
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {partners.map((partner, index) => (
-              <motion.div
-                key={partner.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-rust/5 hover:shadow-xl transition-shadow card-lift"
-              >
-                <div className="w-14 h-14 bg-gradient-to-br from-rust/10 to-copper/10 rounded-xl mb-4 flex items-center justify-center">
-                  <Building2 className="w-7 h-7 text-rust" />
-                </div>
-                <div className="text-xs text-rust font-semibold uppercase tracking-wider mb-2">
-                  {partner.category}
-                </div>
-                <h3 className="text-xl font-bold text-charcoal font-playfair mb-2">
-                  {partner.name}
-                </h3>
-                <p className="text-charcoal/70 text-sm">
-                  {partner.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
