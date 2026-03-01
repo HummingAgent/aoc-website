@@ -221,11 +221,11 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-rust/20 rounded-full text-rust-light text-sm font-medium mb-6"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-rust rounded-full text-white text-sm font-semibold mb-6 shadow-lg"
               >
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rust opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-rust"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
                 </span>
                 Episode 387 Now Live
               </motion.div>
