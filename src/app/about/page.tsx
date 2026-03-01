@@ -72,7 +72,7 @@ export default function AboutPage() {
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/hero-devon.jpg')" }}
+          style={{ backgroundImage: "url('/images/hero-header.jpg')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-charcoal/90 via-charcoal/80 to-charcoal/90" />
         <div className="absolute inset-0 beam-pattern opacity-10" />
