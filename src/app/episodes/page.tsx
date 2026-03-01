@@ -245,9 +245,18 @@ export default function EpisodesPage() {
                     <>
                       {/* Grid View */}
                       <div 
-                        className="relative h-40 bg-gradient-to-br from-charcoal to-aged-wood p-4 bg-cover bg-top"
-                        style={{ backgroundImage: episode.imageUrl ? `linear-gradient(to bottom, rgba(44,44,44,0.3), rgba(44,44,44,0.9)), url(${episode.imageUrl})` : undefined }}
+                        className="relative h-48 bg-charcoal p-4"
                       >
+                        {episode.imageUrl && (
+                          <Image
+                            src={episode.imageUrl}
+                            alt={episode.title}
+                            fill
+                            className="object-contain"
+                          />
+                        )}
+                        {/* Overlay gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent" />
                         {episode.category && (
                           <button
                             onClick={(e) => {

@@ -3,6 +3,7 @@
 import { useState, useEffect, use } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Play,
   Clock,
@@ -202,9 +203,17 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
                       className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all card-lift border border-rust/5"
                     >
                       <div
-                        className="relative h-48 bg-gradient-to-br from-charcoal to-aged-wood p-6 bg-cover bg-top"
-                        style={{ backgroundImage: episode.imageUrl ? `linear-gradient(to bottom, rgba(44,44,44,0.3), rgba(44,44,44,0.85)), url(${episode.imageUrl})` : undefined }}
+                        className="relative h-48 bg-charcoal p-6"
                       >
+                        {episode.imageUrl && (
+                          <Image
+                            src={episode.imageUrl}
+                            alt={episode.title}
+                            fill
+                            className="object-contain"
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent" />
                         <Link
                           href={`/episodes/category/${slug}`}
                           className="absolute top-3 left-3 px-2 py-1 bg-rust/90 text-white text-xs font-semibold rounded-full hover:bg-rust transition-colors"
@@ -262,9 +271,16 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
                       className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-rust/5 flex"
                     >
                       <div
-                        className="w-48 h-auto bg-gradient-to-br from-charcoal to-aged-wood flex-shrink-0 relative bg-cover bg-center"
-                        style={{ backgroundImage: episode.imageUrl ? `url(${episode.imageUrl})` : undefined }}
+                        className="w-48 min-h-[120px] bg-charcoal flex-shrink-0 relative"
                       >
+                        {episode.imageUrl && (
+                          <Image
+                            src={episode.imageUrl}
+                            alt={episode.title}
+                            fill
+                            className="object-contain"
+                          />
+                        )}
                         <button
                           onClick={() => setPlayingEpisode(episode)}
                           className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity"

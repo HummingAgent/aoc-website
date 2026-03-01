@@ -515,9 +515,18 @@ export default function Home() {
               >
                 {/* Episode Header */}
                 <div 
-                  className="relative h-48 bg-gradient-to-br from-charcoal to-aged-wood p-6 bg-cover bg-top"
-                  style={{ backgroundImage: episode.imageUrl ? `linear-gradient(to bottom, rgba(44,44,44,0.3), rgba(44,44,44,0.85)), url(${episode.imageUrl})` : undefined }}
+                  className="relative h-48 bg-charcoal p-6"
                 >
+                  {episode.imageUrl && (
+                    <Image
+                      src={episode.imageUrl}
+                      alt={episode.title}
+                      fill
+                      className="object-contain"
+                    />
+                  )}
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent" />
                   {episode.category && (
                     <div className="absolute top-4 left-4 px-3 py-1 bg-rust/90 text-white text-xs font-semibold rounded-full">
                       {episode.category}
