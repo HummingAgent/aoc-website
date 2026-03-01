@@ -11,8 +11,16 @@ import {
   ArrowRight,
   ExternalLink,
   Building2,
-  CheckCircle
+  CheckCircle,
+  Play
 } from "lucide-react";
+
+const videos = [
+  { id: "wcvfEp6H0ho", title: "What is a Master Facilitator?" },
+  { id: "8QKZIsY6mbM", title: "Community Stories" },
+  { id: "3AoLx5nnKTk", title: "Building Together" },
+  { id: "ybk8glHc4qE", title: "Join the Movement" },
+];
 
 const benefits = [
   {
@@ -157,6 +165,68 @@ export default function CommunityPage() {
               <ExternalLink className="w-5 h-5" />
             </a>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Video Section */}
+      <section className="py-20 bg-cream">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-rust/10 rounded-full text-rust text-sm font-medium mb-4">
+              <Play className="w-4 h-4" />
+              See What We're About
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal font-playfair mb-4">
+              Master Facilitators in <span className="text-gradient">Action</span>
+            </h2>
+          </motion.div>
+
+          {/* Featured Video */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-8"
+          >
+            <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl">
+              <iframe
+                src={`https://www.youtube.com/embed/${videos[0].id}?rel=0`}
+                title={videos[0].title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
+          </motion.div>
+
+          {/* Additional Videos */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {videos.slice(1).map((video, index) => (
+              <motion.div
+                key={video.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="aspect-video rounded-xl overflow-hidden shadow-lg"
+              >
+                <iframe
+                  src={`https://www.youtube.com/embed/${video.id}?rel=0`}
+                  title={video.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
