@@ -318,13 +318,10 @@ export default function Home() {
                 <div className="mb-8">
                   {featuredEpisode ? (
                     <>
-                      <div className="flex items-center gap-2 text-rust-light text-sm mb-2">
-                        <span className="px-2 py-1 bg-rust/20 rounded">Episode {featuredEpisode.id}</span>
+                      <div className="flex items-center gap-3 text-sm mb-2">
+                        <span className="px-3 py-1 bg-rust text-white font-semibold rounded-full">Episode {featuredEpisode.id}</span>
                         {featuredEpisode.category && (
-                          <>
-                            <span>•</span>
-                            <span>{featuredEpisode.category}</span>
-                          </>
+                          <span className="px-3 py-1 bg-white/20 text-white font-medium rounded-full backdrop-blur-sm">{featuredEpisode.category}</span>
                         )}
                       </div>
                       <h3 className="text-2xl font-bold text-white font-playfair mb-2">
