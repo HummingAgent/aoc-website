@@ -201,8 +201,8 @@ export default function PartnersPage() {
               <div className="text-charcoal/60 text-sm">Master Facilitators</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-rust">600K+</div>
-              <div className="text-charcoal/60 text-sm">Global Network</div>
+              <div className="text-3xl md:text-4xl font-bold text-rust">721K+</div>
+              <div className="text-charcoal/60 text-sm">Downloads</div>
             </div>
             <div>
               <div className="text-3xl md:text-4xl font-bold text-rust">10+</div>

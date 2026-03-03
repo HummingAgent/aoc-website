@@ -41,10 +41,10 @@ interface Episode {
 }
 
 const stats = [
-  { label: "Global Listeners", value: "600K+", icon: Globe },
+  { label: "Downloads", value: "721K+", icon: Globe },
   { label: "Episodes", value: "387+", icon: Mic2 },
   { label: "Master Facilitators", value: "500+", icon: Users },
-  { label: "Years Running", value: "8+", icon: Calendar },
+  { label: "Years Running", value: "10+", icon: Calendar },
 ];
 
 const categories = [

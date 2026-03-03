@@ -20,29 +20,36 @@ import {
 
 const milestones = [
   {
-    year: "2018",
+    year: "2014",
     title: "AOC Launches",
-    description: "Devon Tilly starts The Art of Construction podcast from his garage.",
+    description: "Devon Tilly starts The Art of Construction podcast — now celebrating 10+ years!",
+    highlight: true,
   },
   {
-    year: "2020",
+    year: "2018",
     title: "100 Episodes",
     description: "Milestone episode featuring top industry leaders.",
   },
   {
+    year: "2020",
+    title: "Going Global",
+    description: "Podcast reaches listeners in 50+ countries worldwide.",
+  },
+  {
     year: "2022",
     title: "Master Facilitators",
-    description: "Community grows to 200+ active members.",
+    description: "Community grows to 500+ active members.",
   },
   {
     year: "2024",
-    title: "500K Listeners",
-    description: "Half a million global listeners tune in monthly.",
+    title: "10 Year Anniversary",
+    description: "A decade of conversations shaping the future of construction.",
+    highlight: true,
   },
   {
     year: "2026",
-    title: "600K+ Strong",
-    description: "The tribe continues to grow and innovate.",
+    title: "721K+ Downloads",
+    description: "The tribe continues to grow and innovate together.",
   },
 ];
 
@@ -95,17 +102,23 @@ export default function AboutPage() {
               <p className="text-lg text-white/70 mb-8">
                 Informational entrepreneur, podcast host, and leader of the Master Facilitators tribe. Devon has dedicated his career to connecting builders, innovators, and industry leaders across the construction world.
               </p>
+              {/* 10 Year Anniversary Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gold/20 to-rust/20 border border-gold/30 rounded-full mb-6">
+                <Award className="w-5 h-5 text-gold" />
+                <span className="text-gold font-semibold">Celebrating 10+ Years (2014-2024)</span>
+              </div>
+
               <div className="flex flex-wrap gap-6 mb-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-white">387+</div>
                   <div className="text-white/60 text-sm">Episodes</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white">600K+</div>
-                  <div className="text-white/60 text-sm">Listeners</div>
+                  <div className="text-3xl font-bold text-white">721K+</div>
+                  <div className="text-white/60 text-sm">Downloads</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white">8+</div>
+                  <div className="text-3xl font-bold text-white">10+</div>
                   <div className="text-white/60 text-sm">Years</div>
                 </div>
               </div>

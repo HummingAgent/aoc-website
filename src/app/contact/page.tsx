@@ -25,8 +25,8 @@ const socialLinks = [
 const contactOptions = [
   {
     icon: Headphones,
-    title: "Podcast Inquiries",
-    description: "Want to be a guest or sponsor the show?",
+    title: "Be a Podcast Guest",
+    description: "Share your expertise with 700K+ construction professionals. $600 processing fee applies to qualify serious inquiries.",
     action: "podcast@theartofconstruction.net",
     type: "email",
   },
