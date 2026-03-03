@@ -118,6 +118,13 @@ const partners = [
     website: "https://constructionprogress.org/",
     category: "Industry Coalition",
   },
+  {
+    name: "Entry Vision",
+    description: "Construction management software being built from scratch to help manage window and door businesses from estimate to install.",
+    logo: "/images/partners/entry-vision-logo.png",
+    website: "#",
+    category: "Software",
+  },
 ];
 
 const sponsorshipTiers = [
