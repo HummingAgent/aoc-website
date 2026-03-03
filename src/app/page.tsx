@@ -290,15 +290,15 @@ export default function Home() {
               <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
                 {/* Episode Image */}
                 {featuredEpisode?.imageUrl && (
-                  <div className="relative h-72 bg-charcoal">
+                  <Link href={`/episodes/${featuredEpisode.id}`} className="block relative h-72 bg-charcoal group/img">
                     <Image
                       src={featuredEpisode.imageUrl}
                       alt={featuredEpisode.title}
                       fill
-                      className="object-contain"
+                      className="object-contain group-hover/img:scale-105 transition-transform"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-transparent to-transparent" />
-                  </div>
+                  </Link>
                 )}
                 
                 <div className="p-8">
@@ -327,9 +327,11 @@ export default function Home() {
                           <span className="px-3 py-1 bg-white/20 text-white font-medium rounded-full backdrop-blur-sm">{featuredEpisode.category}</span>
                         )}
                       </div>
-                      <h3 className="text-2xl font-bold text-white font-playfair mb-2">
-                        {featuredEpisode.title}
-                      </h3>
+                      <Link href={`/episodes/${featuredEpisode.id}`}>
+                        <h3 className="text-2xl font-bold text-white font-playfair mb-2 hover:text-rust-light transition-colors">
+                          {featuredEpisode.title}
+                        </h3>
+                      </Link>
                       {featuredEpisode.guest && (
                         <p className="text-white/60">
                           with {featuredEpisode.guest}{featuredEpisode.company && ` of ${featuredEpisode.company}`}
@@ -514,46 +516,52 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all card-lift border border-rust/5"
+                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all card-lift border border-rust/5"
               >
-                {/* Episode Header */}
-                <div 
-                  className="relative h-48 bg-charcoal p-6"
-                >
-                  {episode.imageUrl && (
-                    <Image
-                      src={episode.imageUrl}
-                      alt={episode.title}
-                      fill
-                      className="object-contain"
-                    />
-                  )}
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent" />
-                  {episode.category && (
-                    <div className="absolute top-4 left-4 px-3 py-1 bg-rust/90 text-white text-xs font-semibold rounded-full">
-                      {episode.category}
-                    </div>
-                  )}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="text-rust-light text-sm mb-1">Episode {episode.id}</div>
-                    <h3 className="text-xl font-bold text-white font-playfair line-clamp-2">
-                      {episode.title}
-                    </h3>
-                  </div>
-                  {/* Play Button Overlay - always visible on mobile */}
-                  <button 
-                    onClick={() => setNowPlaying(episode)}
-                    className="absolute inset-0 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
+                {/* Episode Header - Clickable */}
+                <Link href={`/episodes/${episode.id}`} className="block">
+                  <div 
+                    className="relative h-48 bg-charcoal p-6"
                   >
-                    <div className="w-16 h-16 rounded-full bg-rust/90 flex items-center justify-center shadow-xl hover:bg-rust hover:scale-110 transition-all">
-                      <Play className="w-7 h-7 text-white fill-white ml-1" />
+                    {episode.imageUrl && (
+                      <Image
+                        src={episode.imageUrl}
+                        alt={episode.title}
+                        fill
+                        className="object-contain"
+                      />
+                    )}
+                    {/* Overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent" />
+                    {episode.category && (
+                      <div className="absolute top-4 left-4 px-3 py-1 bg-rust/90 text-white text-xs font-semibold rounded-full">
+                        {episode.category}
+                      </div>
+                    )}
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="text-rust-light text-sm mb-1">Episode {episode.id}</div>
+                      <h3 className="text-xl font-bold text-white font-playfair line-clamp-2 group-hover:text-rust-light transition-colors">
+                        {episode.title}
+                      </h3>
                     </div>
-                  </button>
-                </div>
+                  </div>
+                </Link>
+                {/* Play Button Overlay - separate from link */}
+                <button 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setNowPlaying(episode);
+                  }}
+                  className="absolute top-24 left-1/2 -translate-x-1/2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10"
+                >
+                  <div className="w-16 h-16 rounded-full bg-rust/90 flex items-center justify-center shadow-xl hover:bg-rust hover:scale-110 transition-all">
+                    <Play className="w-7 h-7 text-white fill-white ml-1" />
+                  </div>
+                </button>
 
-                {/* Episode Body */}
-                <div className="p-6">
+                {/* Episode Body - Clickable */}
+                <Link href={`/episodes/${episode.id}`} className="block p-6">
                   {episode.guest && (
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 rounded-full bg-rust/10 flex items-center justify-center">
@@ -588,14 +596,18 @@ export default function Home() {
                       )}
                     </div>
                     <button
-                      onClick={() => setNowPlaying(episode)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setNowPlaying(episode);
+                      }}
                       className="text-rust font-medium text-sm hover:text-rust-dark flex items-center gap-1"
                     >
                       <Play className="w-3 h-3 fill-rust" />
                       Play
                     </button>
                   </div>
-                </div>
+                </Link>
               </motion.article>
             )))}
           </div>
