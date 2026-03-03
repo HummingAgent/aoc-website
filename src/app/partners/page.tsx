@@ -4,16 +4,15 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { 
-  Zap, 
   ArrowRight, 
   Star, 
   Building2, 
   Cpu, 
   Users,
-  Wrench,
   BarChart3,
   Shield,
-  Handshake
+  Handshake,
+  ExternalLink
 } from "lucide-react";
 
 const featuredPartner = {
@@ -33,6 +32,93 @@ const featuredPartner = {
   },
   website: "https://hummingagent.ai",
 };
+
+const partners = [
+  {
+    name: "Andersen Windows",
+    description: "Long-lasting windows and doors, built for homes that last for generations. Let in more peace of mind.",
+    logo: "/images/partners/Andersen_Logo_Square_CMYK.jpg",
+    website: "https://www.andersenwindows.com/",
+    category: "Windows & Doors",
+  },
+  {
+    name: "Mountain View Window & Door",
+    description: "Enhancing your lifestyle with luxury windows, big doors and value-driven expertise supplied through our System Built partners.",
+    logo: "/images/partners/mvwd-logo.jpg",
+    website: "https://mtviewwd.com/",
+    category: "Windows & Doors",
+  },
+  {
+    name: "WDOC",
+    description: "Window Dealer Owner Council: A group of window dealers who don't compete, working together through leader Devon Tilly of the AOC.",
+    logo: "/images/partners/WDOC-logo-crop-1.png",
+    website: "#",
+    category: "Industry Council",
+  },
+  {
+    name: "TinyMod®",
+    description: "Redefining Your Living: Affordable, Innovative Prefab Homes and ADUs that are Designed for Tomorrow.",
+    logo: "/images/partners/tmod-logo.jpg",
+    website: "https://tinymod.com/",
+    category: "Prefab Housing",
+  },
+  {
+    name: "Huron Components",
+    description: "A component manufacturer specializing in Wall Panels & Truss design and manufacturing, a subsidiary of DL Cohen Construction.",
+    logo: "/images/partners/huron-logo.png",
+    website: "https://huroncomponents.com/",
+    category: "Components",
+  },
+  {
+    name: "Doss",
+    description: "Adaptive ERP and Data platform for construction businesses.",
+    logo: "/images/partners/doss-logo.jpg",
+    website: "https://www.doss.com/",
+    category: "Software",
+  },
+  {
+    name: "Plexxis",
+    description: "Construction Management Software built specifically for subcontractors.",
+    logo: "/images/partners/plexxis-logo.jpg",
+    website: "https://plexxis.com/",
+    category: "Software",
+  },
+  {
+    name: "Assembli",
+    description: "Get faster estimates and better profits. Revolutionize your construction projects with Assembli's AI-powered solutions.",
+    logo: "/images/partners/assembli-logo.png",
+    website: "https://assembli.ai/",
+    category: "AI & Estimation",
+  },
+  {
+    name: "Reekon Tools",
+    description: "Digital Construction Ecosystem - bringing smart measurement and digital tools to the jobsite.",
+    logo: "/images/partners/reekon-logo.jpg",
+    website: "https://reekon.tools/",
+    category: "Tools & Equipment",
+  },
+  {
+    name: "VIZ Graphics",
+    description: "Visualizing Your Success, Together! Professional graphics and visualization services for construction.",
+    logo: "/images/partners/VIZ.jpg",
+    website: "https://vizgraphics.com/",
+    category: "Design & Visualization",
+  },
+  {
+    name: "Information Technology Solutions",
+    description: "We deliver a customer-focused, human approach to technology for construction businesses.",
+    logo: "/images/partners/its-logo.png",
+    website: "#",
+    category: "IT Services",
+  },
+  {
+    name: "Construction Progress Coalition",
+    description: "A CDX is a communication tool utilized between construction project delivery stakeholders and their technology solution providers.",
+    logo: "/images/partners/cpc-logo.png",
+    website: "https://constructionprogress.org/",
+    category: "Industry Coalition",
+  },
+];
 
 const sponsorshipTiers = [
   {
@@ -83,20 +169,44 @@ export default function PartnersPage() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-rust/20 rounded-full text-rust-light text-sm font-medium mb-6">
               <Handshake className="w-4 h-4" />
-              Partners & Sponsors
+              Partners & Affiliates
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-playfair mb-6">
-              Trusted <span className="text-gradient">Partners</span>
+              System Built <span className="text-gradient">Partners</span>
             </h1>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">
-              We partner with the best in the industry to bring value to our community of 600,000+ construction professionals.
+              We connect builders with trusted construction technologies and products. Our network of partners helps you build smarter, faster, and better.
             </p>
           </motion.div>
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="py-12 bg-sand-light">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-rust">{partners.length}+</div>
+              <div className="text-charcoal/60 text-sm">Affiliate Partners</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-rust">500+</div>
+              <div className="text-charcoal/60 text-sm">Master Facilitators</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-rust">600K+</div>
+              <div className="text-charcoal/60 text-sm">Global Network</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-rust">10+</div>
+              <div className="text-charcoal/60 text-sm">Years Building</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Partner - HummingAgent */}
-      <section className="py-20 bg-sand-light">
+      <section className="py-20 bg-cream">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -202,31 +312,72 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* System Built Affiliates CTA */}
-      <section className="py-16 bg-cream">
+      {/* All Partners Grid */}
+      <section className="py-20 bg-sand-light">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-sand to-sand-light rounded-3xl p-8 md:p-12 text-center border border-rust/10"
+            className="text-center mb-16"
           >
             <Building2 className="w-12 h-12 text-rust mx-auto mb-4" />
-            <h2 className="text-2xl md:text-3xl font-bold text-charcoal font-playfair mb-4">
-              Looking for System Built Affiliates?
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal font-playfair mb-4">
+              System Built <span className="text-gradient">Affiliates</span>
             </h2>
-            <p className="text-charcoal/70 max-w-2xl mx-auto mb-6">
-              Explore our network of trusted construction technology and product partners driving innovation in offsite and system-built construction.
+            <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+              Trusted partners driving innovation in offsite and system-built construction.
             </p>
-            <Link
-              href="/system-built"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-charcoal text-white font-semibold rounded-full hover:bg-rust transition-colors shadow-lg"
-            >
-              View System Built Affiliates
-              <ArrowRight className="w-5 h-5" />
-            </Link>
           </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {partners.map((partner, index) => (
+              <motion.div
+                key={partner.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                viewport={{ once: true }}
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-rust/5 card-lift"
+              >
+                {/* Logo */}
+                <div className="h-48 bg-gradient-to-br from-sand to-cream flex items-center justify-center p-8">
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={200}
+                    height={120}
+                    className="max-h-32 w-auto object-contain"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <div className="text-xs text-rust font-semibold uppercase tracking-wider mb-2">
+                    {partner.category}
+                  </div>
+                  <h3 className="text-xl font-bold text-charcoal font-playfair mb-3">
+                    {partner.name}
+                  </h3>
+                  <p className="text-charcoal/70 text-sm mb-4 line-clamp-3">
+                    {partner.description}
+                  </p>
+                  {partner.website !== "#" && (
+                    <a
+                      href={partner.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-rust font-medium text-sm hover:text-rust-dark transition-colors"
+                    >
+                      Visit Website
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

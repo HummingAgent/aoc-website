@@ -9,9 +9,8 @@ import { Menu, X, Headphones, Users, Info, Handshake, Mail, Newspaper, Building2
 const navigation = [
   { name: "Episodes", href: "/episodes", icon: Headphones },
   { name: "Master Facilitators", href: "/community", icon: Users },
-  { name: "System Built", href: "/system-built", icon: Building2 },
-  { name: "About Devon", href: "/about", icon: Info },
   { name: "Partners", href: "/partners", icon: Handshake },
+  { name: "About", href: "/about", icon: Info },
 ];
 
 export default function Header() {
