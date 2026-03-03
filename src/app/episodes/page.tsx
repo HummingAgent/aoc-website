@@ -243,61 +243,67 @@ export default function EpisodesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.5) }}
-                  className={`group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-rust/5 ${
+                  className={`group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-rust/5 ${
                     viewMode === "list" ? "flex" : ""
                   } ${nowPlaying?.id === episode.id ? "ring-2 ring-rust" : ""}`}
                 >
                   {viewMode === "grid" ? (
                     <>
                       {/* Grid View */}
-                      <div 
-                        className="relative h-48 bg-charcoal p-4"
-                      >
-                        {episode.imageUrl && (
-                          <Image
-                            src={episode.imageUrl}
-                            alt={episode.title}
-                            fill
-                            className="object-contain"
-                          />
-                        )}
-                        {/* Overlay gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent" />
-                        {episode.category && (
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              e.stopPropagation();
-                              setSelectedCategory(episode.category!);
-                            }}
-                            className="absolute top-3 left-3 px-2 py-1 bg-rust/90 text-white text-xs font-semibold rounded-full hover:bg-rust transition-colors cursor-pointer"
-                          >
-                            {episode.category}
-                          </button>
-                        )}
-                        {nowPlaying?.id === episode.id && (
-                          <div className="absolute top-3 right-3 px-2 py-1 bg-green-500 text-white text-xs font-semibold rounded-full flex items-center gap-1">
-                            <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
-                            Playing
-                          </div>
-                        )}
-                        <div className="absolute bottom-3 left-3 right-3">
-                          <div className="text-rust-light text-sm">Episode {episode.id}</div>
-                          <h3 className="text-lg font-bold text-white font-playfair line-clamp-2">
-                            {episode.title}
-                          </h3>
-                        </div>
-                        {/* Play Button Overlay - always visible on mobile, hover on desktop */}
-                        <button 
-                          onClick={() => playEpisode(episode)}
-                          className="absolute inset-0 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
+                      <Link href={`/episodes/${episode.id}`} className="block">
+                        <div 
+                          className="relative h-48 bg-charcoal p-4"
                         >
-                          <div className="w-14 h-14 rounded-full bg-rust/90 flex items-center justify-center shadow-xl hover:bg-rust hover:scale-110 transition-all">
-                            <Play className="w-6 h-6 text-white fill-white ml-1" />
+                          {episode.imageUrl && (
+                            <Image
+                              src={episode.imageUrl}
+                              alt={episode.title}
+                              fill
+                              className="object-contain"
+                            />
+                          )}
+                          {/* Overlay gradient */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent" />
+                          {episode.category && (
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setSelectedCategory(episode.category!);
+                              }}
+                              className="absolute top-3 left-3 px-2 py-1 bg-rust/90 text-white text-xs font-semibold rounded-full hover:bg-rust transition-colors cursor-pointer z-10"
+                            >
+                              {episode.category}
+                            </button>
+                          )}
+                          {nowPlaying?.id === episode.id && (
+                            <div className="absolute top-3 right-3 px-2 py-1 bg-green-500 text-white text-xs font-semibold rounded-full flex items-center gap-1">
+                              <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                              Playing
+                            </div>
+                          )}
+                          <div className="absolute bottom-3 left-3 right-3">
+                            <div className="text-rust-light text-sm">Episode {episode.id}</div>
+                            <h3 className="text-lg font-bold text-white font-playfair line-clamp-2 group-hover:text-rust-light transition-colors">
+                              {episode.title}
+                            </h3>
                           </div>
-                        </button>
-                      </div>
-                      <div className="p-5">
+                        </div>
+                      </Link>
+                      {/* Play Button - separate from link */}
+                      <button 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          playEpisode(episode);
+                        }}
+                        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10"
+                      >
+                        <div className="w-14 h-14 rounded-full bg-rust/90 flex items-center justify-center shadow-xl hover:bg-rust hover:scale-110 transition-all">
+                          <Play className="w-6 h-6 text-white fill-white ml-1" />
+                        </div>
+                      </button>
+                      <Link href={`/episodes/${episode.id}`} className="block p-5">
                         {episode.guest && (
                           <div className="flex items-center gap-2 mb-3">
                             <Mic2 className="w-4 h-4 text-rust" />
@@ -326,32 +332,40 @@ export default function EpisodesPage() {
                             )}
                           </div>
                           <button
-                            onClick={() => playEpisode(episode)}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              playEpisode(episode);
+                            }}
                             className="text-rust font-medium text-sm hover:text-rust-dark flex items-center gap-1"
                           >
                             <Play className="w-3 h-3 fill-rust" />
                             Play
                           </button>
                         </div>
-                      </div>
+                      </Link>
                     </>
                   ) : (
                     <>
                       {/* List View */}
-                      <div className="relative w-32 md:w-48 bg-gradient-to-br from-charcoal to-aged-wood flex items-center justify-center shrink-0">
+                      <Link href={`/episodes/${episode.id}`} className="relative w-32 md:w-48 bg-gradient-to-br from-charcoal to-aged-wood flex items-center justify-center shrink-0">
                         <div className="text-4xl font-bold text-white/20 font-playfair">
                           {episode.id}
                         </div>
-                        <button
-                          onClick={() => playEpisode(episode)}
-                          className="absolute inset-0 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
-                        >
-                          <div className="w-12 h-12 rounded-full bg-rust/90 flex items-center justify-center hover:scale-110 transition-all">
-                            <Play className="w-5 h-5 text-white fill-white ml-0.5" />
-                          </div>
-                        </button>
-                      </div>
-                      <div className="flex-1 p-5">
+                      </Link>
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          playEpisode(episode);
+                        }}
+                        className="absolute left-16 md:left-24 top-1/2 -translate-y-1/2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10"
+                      >
+                        <div className="w-12 h-12 rounded-full bg-rust/90 flex items-center justify-center hover:scale-110 transition-all">
+                          <Play className="w-5 h-5 text-white fill-white ml-0.5" />
+                        </div>
+                      </button>
+                      <Link href={`/episodes/${episode.id}`} className="flex-1 p-5">
                         <div className="flex flex-wrap items-center gap-2 mb-2">
                           {episode.category && (
                             <button
@@ -372,7 +386,7 @@ export default function EpisodesPage() {
                             </span>
                           )}
                         </div>
-                        <h3 className="text-lg font-bold text-charcoal font-playfair mb-2">
+                        <h3 className="text-lg font-bold text-charcoal font-playfair mb-2 group-hover:text-rust transition-colors">
                           {episode.title}
                         </h3>
                         {episode.guest && (
@@ -398,10 +412,14 @@ export default function EpisodesPage() {
                             </span>
                           )}
                         </div>
-                      </div>
+                      </Link>
                       <div className="flex items-center pr-5">
                         <button
-                          onClick={() => playEpisode(episode)}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            playEpisode(episode);
+                          }}
                           className="px-4 py-2 bg-rust text-white rounded-full text-sm font-medium hover:bg-rust-dark transition-colors flex items-center gap-2"
                         >
                           <Play className="w-3 h-3 fill-white" />
