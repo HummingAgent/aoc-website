@@ -394,7 +394,7 @@ export default function AboutPage() {
       </section>
 
       {/* Leaders of the Tribe Section */}
-      <section className="py-20 bg-charcoal">
+      <section className="py-20 bg-sand-light">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -403,45 +403,41 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white font-playfair mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal font-playfair mb-4">
               Leaders of the <span className="text-gradient">Tribe</span>
             </h2>
-            <p className="text-white/70 max-w-2xl mx-auto">
+            <p className="text-charcoal/70 max-w-2xl mx-auto">
               The team behind The Art of Construction bringing you insights, connections, and innovation.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Matt McMullen */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="group relative"
+              className="text-center"
             >
-              <div className="relative overflow-hidden rounded-2xl">
+              <div className="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-rust/20">
                 <Image
                   src="/images/leaders/matt-mcmullen.jpg"
                   alt="Matt McMullen"
-                  width={400}
-                  height={400}
-                  className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
+                  width={160}
+                  height={160}
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center justify-between mb-1">
-                    <h3 className="text-xl font-bold text-white">Matt McMullen</h3>
-                    <a href="https://www.linkedin.com/in/matt-mcmullen-20314116/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-rust transition-colors">
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                  </div>
-                  <p className="text-white text-sm font-semibold mb-2">Executive Director, AOC</p>
-                  <p className="text-white/80 text-sm leading-relaxed">
-                    35 years in design & construction. Licensed Architect in 6 states.
-                  </p>
-                </div>
               </div>
+              <h3 className="text-xl font-bold text-charcoal mb-1">Matt McMullen</h3>
+              <p className="text-rust font-semibold text-sm mb-3">Executive Director, AOC</p>
+              <p className="text-charcoal/70 text-sm mb-4">
+                35 years in design & construction. Licensed Architect in 6 states. AIA, LEED-AP, NCARB.
+              </p>
+              <a href="https://www.linkedin.com/in/matt-mcmullen-20314116/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-charcoal/60 hover:text-rust transition-colors text-sm">
+                <Linkedin className="w-4 h-4" />
+                LinkedIn
+              </a>
             </motion.div>
 
             {/* Shawn Kercher */}
@@ -450,30 +446,26 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="group relative"
+              className="text-center"
             >
-              <div className="relative overflow-hidden rounded-2xl">
+              <div className="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-rust/20">
                 <Image
                   src="/images/leaders/shawn-kercher.jpg"
                   alt="Shawn Kercher"
-                  width={400}
-                  height={400}
-                  className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
+                  width={160}
+                  height={160}
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center justify-between mb-1">
-                    <h3 className="text-xl font-bold text-white">Shawn Kercher</h3>
-                    <a href="https://www.linkedin.com/in/shawnkercher/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-rust transition-colors">
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                  </div>
-                  <p className="text-white text-sm font-semibold mb-2">Co-Founder & CTO, HummingAgent</p>
-                  <p className="text-white/80 text-sm leading-relaxed">
-                    15 years AI at Fortune 100s. 8 US patents. Former Comcast Labs.
-                  </p>
-                </div>
               </div>
+              <h3 className="text-xl font-bold text-charcoal mb-1">Shawn Kercher</h3>
+              <p className="text-rust font-semibold text-sm mb-3">Co-Founder & CTO, HummingAgent</p>
+              <p className="text-charcoal/70 text-sm mb-4">
+                15 years building AI at Fortune 100s. 8 US patents. Former Comcast Labs.
+              </p>
+              <a href="https://www.linkedin.com/in/shawnkercher/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-charcoal/60 hover:text-rust transition-colors text-sm">
+                <Linkedin className="w-4 h-4" />
+                LinkedIn
+              </a>
             </motion.div>
 
             {/* Joey Kercher */}
@@ -482,30 +474,26 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="group relative"
+              className="text-center"
             >
-              <div className="relative overflow-hidden rounded-2xl">
+              <div className="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-rust/20">
                 <Image
                   src="/images/leaders/joey-kercher.jpg"
                   alt="Joey Kercher"
-                  width={400}
-                  height={400}
-                  className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
+                  width={160}
+                  height={160}
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center justify-between mb-1">
-                    <h3 className="text-xl font-bold text-white">Joey Kercher</h3>
-                    <a href="https://www.linkedin.com/in/joeykercher/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-rust transition-colors">
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                  </div>
-                  <p className="text-white text-sm font-semibold mb-2">Co-Founder, HummingAgent</p>
-                  <p className="text-white/80 text-sm leading-relaxed">
-                    25+ years experiential marketing. President, Air Fresh Marketing.
-                  </p>
-                </div>
               </div>
+              <h3 className="text-xl font-bold text-charcoal mb-1">Joey Kercher</h3>
+              <p className="text-rust font-semibold text-sm mb-3">Co-Founder, HummingAgent</p>
+              <p className="text-charcoal/70 text-sm mb-4">
+                25+ years experiential marketing. President of Air Fresh Marketing.
+              </p>
+              <a href="https://www.linkedin.com/in/joeykercher/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-charcoal/60 hover:text-rust transition-colors text-sm">
+                <Linkedin className="w-4 h-4" />
+                LinkedIn
+              </a>
             </motion.div>
 
             {/* Kelly Kercher */}
@@ -514,30 +502,26 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="group relative"
+              className="text-center"
             >
-              <div className="relative overflow-hidden rounded-2xl">
+              <div className="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-rust/20">
                 <Image
                   src="/images/leaders/kelly-kercher.jpg"
                   alt="Kelly Kercher"
-                  width={400}
-                  height={400}
-                  className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
+                  width={160}
+                  height={160}
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center justify-between mb-1">
-                    <h3 className="text-xl font-bold text-white">Kelly Kercher</h3>
-                    <a href="https://www.linkedin.com/in/kellykercher/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-rust transition-colors">
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                  </div>
-                  <p className="text-white text-sm font-semibold mb-2">Co-Founder, HummingAgent</p>
-                  <p className="text-white/80 text-sm leading-relaxed">
-                    Founder & CEO, K3 Technology. IT partner Denver & Dallas.
-                  </p>
-                </div>
               </div>
+              <h3 className="text-xl font-bold text-charcoal mb-1">Kelly Kercher</h3>
+              <p className="text-rust font-semibold text-sm mb-3">Co-Founder, HummingAgent</p>
+              <p className="text-charcoal/70 text-sm mb-4">
+                Founder & CEO of K3 Technology. IT partner for Denver & Dallas.
+              </p>
+              <a href="https://www.linkedin.com/in/kellykercher/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-charcoal/60 hover:text-rust transition-colors text-sm">
+                <Linkedin className="w-4 h-4" />
+                LinkedIn
+              </a>
             </motion.div>
           </div>
         </div>
