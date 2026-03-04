@@ -443,8 +443,14 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10"
             >
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-rust to-copper flex items-center justify-center text-white text-2xl font-bold">
-                SK
+              <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+                <Image
+                  src="/images/leaders/shawn-kercher.jpg"
+                  alt="Shawn Kercher"
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl font-bold text-white text-center mb-1">Shawn Kercher</h3>
               <p className="text-rust text-sm text-center mb-4">Co-Founder & CTO, HummingAgent</p>
@@ -466,8 +472,14 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10"
             >
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-rust to-copper flex items-center justify-center text-white text-2xl font-bold">
-                JK
+              <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+                <Image
+                  src="/images/leaders/joey-kercher.jpg"
+                  alt="Joey Kercher"
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl font-bold text-white text-center mb-1">Joey Kercher</h3>
               <p className="text-rust text-sm text-center mb-4">Co-Founder, HummingAgent</p>
@@ -489,8 +501,14 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10"
             >
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-rust to-copper flex items-center justify-center text-white text-2xl font-bold">
-                KK
+              <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+                <Image
+                  src="/images/leaders/kelly-kercher.jpg"
+                  alt="Kelly Kercher"
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl font-bold text-white text-center mb-1">Kelly Kercher</h3>
               <p className="text-rust text-sm text-center mb-4">Co-Founder, HummingAgent</p>
