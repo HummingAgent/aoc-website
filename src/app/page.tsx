@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import AudioPlayer from "@/components/AudioPlayer";
+import LinkedInFeed from "@/components/LinkedInFeed";
 import { 
   Play, 
   Pause,
@@ -897,6 +898,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* LinkedIn Social Feed */}
+      <LinkedInFeed />
 
       {/* About Devon CTA Section */}
       <section className="py-20 bg-cream">
