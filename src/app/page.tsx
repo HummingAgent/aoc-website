@@ -283,17 +283,17 @@ export default function Home() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative"
+              className="relative w-full max-w-md mx-auto lg:max-w-none"
             >
               {/* Hidden Audio Element */}
               {featuredEpisode && (
                 <audio ref={audioRef} src={featuredEpisode.audioUrl} preload="metadata" />
               )}
               
-              <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+              <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl lg:rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
                 {/* Episode Image */}
                 {featuredEpisode?.imageUrl && (
-                  <Link href={`/episodes/${featuredEpisode.id}`} className="block relative h-72 bg-charcoal group/img">
+                  <Link href={`/episodes/${featuredEpisode.id}`} className="block relative h-48 sm:h-56 lg:h-72 bg-charcoal group/img">
                     <Image
                       src={featuredEpisode.imageUrl}
                       alt={featuredEpisode.title}
@@ -304,9 +304,9 @@ export default function Home() {
                   </Link>
                 )}
                 
-                <div className="p-8">
+                <div className="p-4 sm:p-6 lg:p-8">
                 {/* Now Playing Badge */}
-                <div className="absolute top-4 left-8 px-4 py-2 bg-rust text-white text-sm font-semibold rounded-full flex items-center gap-2 z-10">
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 lg:left-8 px-3 py-1.5 sm:px-4 sm:py-2 bg-rust text-white text-xs sm:text-sm font-semibold rounded-full flex items-center gap-2 z-10">
                   <span className="relative flex h-2 w-2">
                     {isPlaying ? (
                       <>
@@ -321,22 +321,22 @@ export default function Home() {
                 </div>
 
                 {/* Episode Info */}
-                <div className="mb-8">
+                <div className="mb-4 sm:mb-6 lg:mb-8">
                   {featuredEpisode ? (
                     <>
-                      <div className="flex items-center gap-3 text-sm mb-2">
-                        <span className="px-3 py-1 bg-rust text-white font-semibold rounded-full">Episode {featuredEpisode.id}</span>
+                      <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm mb-2">
+                        <span className="px-2 py-1 sm:px-3 bg-rust text-white font-semibold rounded-full">Episode {featuredEpisode.id}</span>
                         {featuredEpisode.category && (
-                          <span className="px-3 py-1 bg-white/20 text-white font-medium rounded-full backdrop-blur-sm">{featuredEpisode.category}</span>
+                          <span className="px-2 py-1 sm:px-3 bg-white/20 text-white font-medium rounded-full backdrop-blur-sm">{featuredEpisode.category}</span>
                         )}
                       </div>
                       <Link href={`/episodes/${featuredEpisode.id}`}>
-                        <h3 className="text-2xl font-bold text-white font-playfair mb-2 hover:text-rust-light transition-colors">
+                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white font-playfair mb-2 hover:text-rust-light transition-colors">
                           {featuredEpisode.title}
                         </h3>
                       </Link>
                       {featuredEpisode.guest && (
-                        <p className="text-white/60">
+                        <p className="text-white/60 text-sm sm:text-base">
                           with {featuredEpisode.guest}{featuredEpisode.company && ` of ${featuredEpisode.company}`}
                         </p>
                       )}
@@ -350,10 +350,10 @@ export default function Home() {
                   )}
                 </div>
 
-                {/* Quote */}
+                {/* Quote - hide on very small screens */}
                 {featuredEpisode?.quote && (
-                  <blockquote className="relative pl-4 border-l-2 border-rust mb-8">
-                    <p className="text-white/80 italic">
+                  <blockquote className="hidden sm:block relative pl-4 border-l-2 border-rust mb-4 sm:mb-6 lg:mb-8">
+                    <p className="text-white/80 italic text-sm sm:text-base">
                       "{featuredEpisode.quote}"
                     </p>
                   </blockquote>
