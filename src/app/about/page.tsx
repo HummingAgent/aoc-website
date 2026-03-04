@@ -434,10 +434,14 @@ export default function AboutPage() {
               <p className="text-charcoal/70 text-sm mb-4">
                 35 years in design & construction. Licensed Architect in 6 states. AIA, LEED-AP, NCARB.
               </p>
-              <a href="https://www.linkedin.com/in/matt-mcmullen-20314116/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-charcoal/60 hover:text-rust transition-colors text-sm">
-                <Linkedin className="w-4 h-4" />
-                LinkedIn
-              </a>
+              <div className="flex items-center justify-center gap-4">
+                <a href="https://www.linkedin.com/in/matt-mcmullen-20314116/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-charcoal/60 hover:text-rust transition-colors text-sm">
+                  <Linkedin className="w-4 h-4" />
+                </a>
+                <a href="https://www.create4everyone.biz/" target="_blank" rel="noopener noreferrer" className="text-charcoal/60 hover:text-rust transition-colors text-sm underline">
+                  CREATE.architecture
+                </a>
+              </div>
             </motion.div>
 
             {/* Shawn Kercher */}
@@ -462,10 +466,14 @@ export default function AboutPage() {
               <p className="text-charcoal/70 text-sm mb-4">
                 15 years building AI at Fortune 100s. 8 US patents. Former Comcast Labs.
               </p>
-              <a href="https://www.linkedin.com/in/shawnkercher/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-charcoal/60 hover:text-rust transition-colors text-sm">
-                <Linkedin className="w-4 h-4" />
-                LinkedIn
-              </a>
+              <div className="flex items-center justify-center gap-4">
+                <a href="https://www.linkedin.com/in/shawnkercher/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-charcoal/60 hover:text-rust transition-colors text-sm">
+                  <Linkedin className="w-4 h-4" />
+                </a>
+                <a href="https://hummingagent.ai" target="_blank" rel="noopener noreferrer" className="text-charcoal/60 hover:text-rust transition-colors text-sm underline">
+                  HummingAgent
+                </a>
+              </div>
             </motion.div>
 
             {/* Joey Kercher */}
@@ -490,10 +498,17 @@ export default function AboutPage() {
               <p className="text-charcoal/70 text-sm mb-4">
                 25+ years experiential marketing. President of Air Fresh Marketing.
               </p>
-              <a href="https://www.linkedin.com/in/joeykercher/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-charcoal/60 hover:text-rust transition-colors text-sm">
-                <Linkedin className="w-4 h-4" />
-                LinkedIn
-              </a>
+              <div className="flex items-center justify-center gap-4">
+                <a href="https://www.linkedin.com/in/joeykercher/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-charcoal/60 hover:text-rust transition-colors text-sm">
+                  <Linkedin className="w-4 h-4" />
+                </a>
+                <a href="https://hummingagent.ai" target="_blank" rel="noopener noreferrer" className="text-charcoal/60 hover:text-rust transition-colors text-sm underline">
+                  HummingAgent
+                </a>
+                <a href="https://airfreshmarketing.com" target="_blank" rel="noopener noreferrer" className="text-charcoal/60 hover:text-rust transition-colors text-sm underline">
+                  Air Fresh
+                </a>
+              </div>
             </motion.div>
 
             {/* Kelly Kercher */}
@@ -518,10 +533,17 @@ export default function AboutPage() {
               <p className="text-charcoal/70 text-sm mb-4">
                 Founder & CEO of K3 Technology. IT partner for Denver & Dallas.
               </p>
-              <a href="https://www.linkedin.com/in/kellykercher/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-charcoal/60 hover:text-rust transition-colors text-sm">
-                <Linkedin className="w-4 h-4" />
-                LinkedIn
-              </a>
+              <div className="flex items-center justify-center gap-4">
+                <a href="https://www.linkedin.com/in/kellykercher/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-charcoal/60 hover:text-rust transition-colors text-sm">
+                  <Linkedin className="w-4 h-4" />
+                </a>
+                <a href="https://hummingagent.ai" target="_blank" rel="noopener noreferrer" className="text-charcoal/60 hover:text-rust transition-colors text-sm underline">
+                  HummingAgent
+                </a>
+                <a href="https://k3techs.com" target="_blank" rel="noopener noreferrer" className="text-charcoal/60 hover:text-rust transition-colors text-sm underline">
+                  K3 Technology
+                </a>
+              </div>
             </motion.div>
           </div>
         </div>
