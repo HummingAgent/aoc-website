@@ -212,18 +212,87 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* My Story Section - Narrative Style */}
-      <section className="py-20 bg-sand-light">
+      {/* I'M NO DIFFERENT Section - Dan Martell Style */}
+      <section className="relative py-24 overflow-hidden">
+        {/* Dark background with family image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/devon-family.png"
+            alt="The Tilly Family"
+            fill
+            className="object-cover object-right"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/95 to-charcoal/40" />
+        </div>
+        
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="max-w-2xl"
+          >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-playfair italic mb-8">
+              I'M NO DIFFERENT
+            </h2>
+            
+            <div className="space-y-4 text-white/80 text-lg">
+              <p>I could tell you about the podcast downloads, the community...</p>
+              <p>Or that I've interviewed hundreds of construction industry leaders.</p>
+              
+              <p className="text-white font-bold text-xl border-b-2 border-rust inline-block pb-1">
+                But that's all noise without the WHY.
+              </p>
+              
+              <p>Because I went through everything you're dealing with... maybe WORSE.</p>
+              
+              <p className="text-white/90">
+                <span className="font-semibold">Long hours.</span> Feeling isolated. Wondering if there was a better way to run a business in construction.
+              </p>
+              
+              <p>Doubt that "someone like me" could actually build something that mattered.</p>
+              
+              <p>But here's what I realized... <span className="italic">it was preparation.</span></p>
+              
+              <p>Preparation to give you everything I never had.</p>
+              
+              <p>
+                The conversations, connections, and community that let me finally{" "}
+                <span className="text-white font-bold">build something bigger than myself.</span>
+              </p>
+              
+              <p>
+                To show you it's possible without sacrificing your family, your health, or your sanity.
+              </p>
+              
+              <p className="text-white text-xl">
+                Because on the other side of building your tribe is{" "}
+                <span className="font-bold italic">a business that actually works for you.</span>
+              </p>
+            </div>
+            
+            <Link
+              href="#my-story"
+              className="inline-flex items-center gap-2 bg-white text-charcoal px-6 py-3 rounded-full font-semibold hover:bg-rust hover:text-white transition-colors mt-8"
+            >
+              Read My Story
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* My Story Details */}
+      <section id="my-story" className="py-20 bg-sand-light">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="prose prose-lg max-w-none"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-charcoal font-playfair mb-8 text-center">
-              My <span className="text-gradient">Why</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal font-playfair mb-8">
+              The Full <span className="text-gradient">Story</span>
             </h2>
             
             <div className="grid lg:grid-cols-5 gap-12 items-start">
