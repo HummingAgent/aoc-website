@@ -68,7 +68,7 @@ export default function SubscribePage() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-5xl font-bold text-white font-playfair mb-6">
-                Join 600,000+{" "}
+                Join 721,000+{" "}
                 <span className="text-gradient">Construction Pros</span>
               </h1>
               <p className="text-lg text-white/70 mb-8">
@@ -164,7 +164,7 @@ export default function SubscribePage() {
                     ))}
                   </div>
                   <span className="text-white/80 text-sm">
-                    +600K subscribers
+                    +721K subscribers
                   </span>
                 </div>
                 <p className="text-white/60 text-sm italic">

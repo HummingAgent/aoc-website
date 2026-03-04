@@ -70,11 +70,11 @@ const partners = [
     category: "Components",
   },
   {
-    name: "Doss",
-    description: "Adaptive ERP and Data platform for construction businesses.",
-    logo: "/images/partners/doss-logo.jpg",
-    website: "https://www.doss.com/",
-    category: "Software",
+    name: "Turkey Toe Retreat",
+    description: "A sanctuary retreat center in Westcliffe, CO where construction leaders connect, collaborate, and build the future together.",
+    logo: "/images/partners/turkey-toe-logo.png",
+    website: "https://turkeytoe.com/",
+    category: "Retreat & Events",
   },
   {
     name: "Plexxis",
@@ -205,7 +205,7 @@ export default function PartnersPage() {
               <div className="text-charcoal/60 text-sm">Downloads</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-rust">10+</div>
+              <div className="text-3xl md:text-4xl font-bold text-rust">12+</div>
               <div className="text-charcoal/60 text-sm">Years Building</div>
             </div>
           </div>
@@ -404,7 +404,7 @@ export default function PartnersPage() {
               Become a <span className="text-gradient">Partner</span>
             </h2>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">
-              Reach 600,000+ construction professionals through The Art of Construction.
+              Reach 721,000+ construction professionals through The Art of Construction.
             </p>
           </motion.div>
 

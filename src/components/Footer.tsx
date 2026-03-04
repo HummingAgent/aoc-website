@@ -64,7 +64,7 @@ export default function Footer() {
           >
             <div className="text-center lg:text-left">
               <h3 className="text-2xl md:text-3xl font-bold font-playfair mb-2">
-                Join 600,000+ Construction Pros
+                Join 721,000+ Construction Pros
               </h3>
               <p className="text-white/70 max-w-md">
                 Get the latest episodes, industry insights, and exclusive content delivered to your inbox.

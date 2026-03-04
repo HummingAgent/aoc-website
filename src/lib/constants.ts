@@ -20,7 +20,7 @@ export const socialLinks = {
   instagram: 'https://www.instagram.com/aocmasterfacilitators/',
   facebook: 'https://www.facebook.com/TheArtofConstructionmvwd',
   linkedin: 'https://www.linkedin.com/company/theart-of-construction/',
-  youtube: 'https://www.youtube.com/@theartofconstruction',
+  youtube: 'https://www.youtube.com/@artofconstruction5072',
   twitter: '', // Not found in RSS
 };
 
@@ -33,10 +33,10 @@ export const podcastPlatforms = {
 };
 
 export const stats = {
-  listeners: '600K+',
+  listeners: '721K+',
   episodes: '387+',
   masterFacilitators: '500+',
-  yearsRunning: '8+',
+  yearsRunning: '12+',
 };
 
 // Partner info

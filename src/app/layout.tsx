@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "The Art of Construction | Podcast & Master Facilitators Community",
-  description: "Join Devon Tilly and the tribe of Master Facilitators. We connect Systems Built Builders and affiliates to the right construction technologies and products. 600,000+ global listeners.",
+  description: "Join Devon Tilly and the tribe of Master Facilitators. We connect Systems Built Builders and affiliates to the right construction technologies and products. 721,000+ global listeners.",
   keywords: ["construction podcast", "master facilitators", "Devon Tilly", "construction technology", "offsite construction", "prefab", "building industry"],
   icons: {
     icon: [

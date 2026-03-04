@@ -236,7 +236,7 @@ export default function Home() {
               </h1>
 
               <p className="text-lg md:text-xl text-white/70 mb-8 max-w-xl">
-                Join Devon Tilly and 600,000+ construction professionals in the ultimate community for builders, innovators, and industry leaders.
+                Join Devon Tilly and 721,000+ construction professionals in the ultimate community for builders, innovators, and industry leaders.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
