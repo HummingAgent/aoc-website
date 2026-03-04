@@ -227,12 +227,24 @@ export default function AboutPage() {
                 </p>
               </div>
               
-              {/* Family / New Year Card */}
+              {/* Family Images */}
               <div className="lg:col-span-2 space-y-6">
+                {/* Family Collage */}
+                <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                  <Image
+                    src="/images/devon-family.png"
+                    alt="Devon Tilly with family and the AOC community"
+                    width={600}
+                    height={700}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                
+                {/* New Year Card */}
                 <div className="relative rounded-2xl overflow-hidden shadow-xl">
                   <Image
                     src="/images/devon-new-year-card.png"
-                    alt="The Tilly Family - Devon, Sarah, and Eva"
+                    alt="The Tilly Family - Devon, Sarah, and Eva - 2026"
                     width={600}
                     height={800}
                     className="w-full h-auto object-cover"
