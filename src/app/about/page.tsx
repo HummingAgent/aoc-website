@@ -407,7 +407,7 @@ export default function AboutPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
             {/* Matt McMullen */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -570,6 +570,41 @@ export default function AboutPage() {
                 </a>
                 <a href="https://itsolutionsco.com" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-rust transition-colors text-xs">
                   ITS Corp
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Devon Tilly */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10 flex flex-col"
+            >
+              <div className="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden">
+                <Image
+                  src="/images/leaders/devon-tilly.jpg"
+                  alt="Devon Tilly"
+                  width={112}
+                  height={112}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-white text-center mb-1">Devon Tilly</h3>
+              <p className="text-rust text-sm text-center mb-4">Founder, Art of Construction</p>
+              <p className="text-white/70 text-sm text-center flex-grow">
+                Host of The Art of Construction podcast. 14+ years as President of Mountain View Window & Door. Building the Master Facilitators tribe.
+              </p>
+              <div className="flex justify-center items-center gap-3 mt-4 pt-4 border-t border-white/10">
+                <a href="https://www.linkedin.com/in/devon-tilly-5a407a20/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-rust transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://theartofconstruction.net" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-rust transition-colors text-xs">
+                  AOC
+                </a>
+                <a href="https://mtviewwd.com" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-rust transition-colors text-xs">
+                  MVWD
                 </a>
               </div>
             </motion.div>
