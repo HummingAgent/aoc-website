@@ -99,8 +99,11 @@ export default function AboutPage() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-playfair mb-6">
                 Meet <span className="text-gradient">Devon Tilly</span>
               </h1>
+              <p className="text-lg text-white/70 mb-4">
+                I believe construction isn't just about buildings — it's about the people who build them.
+              </p>
               <p className="text-lg text-white/70 mb-8">
-                Informational entrepreneur, podcast host, and leader of the Master Facilitators tribe. Devon has dedicated his career to connecting builders, innovators, and industry leaders across the construction world.
+                After years in the window and door industry, I realized something was missing: real conversations between the people actually doing the work. So in 2014, I started The Art of Construction — not to build an audience, but to build connections.
               </p>
               {/* 10 Year Anniversary Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gold/20 to-rust/20 border border-gold/30 rounded-full mb-6">
@@ -171,28 +174,57 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story Section */}
+      {/* My Story Section - Narrative Style */}
       <section className="py-20 bg-sand-light">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center mb-16"
+            className="prose prose-lg max-w-none"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-charcoal font-playfair mb-6">
-              The <span className="text-gradient">Story</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal font-playfair mb-8 text-center">
+              My <span className="text-gradient">Why</span>
             </h2>
-            <p className="text-lg text-charcoal/70 mb-6">
-              Devon Tilly started The Art of Construction with a simple mission: give construction professionals a platform to share their knowledge, experiences, and innovations.
-            </p>
-            <p className="text-lg text-charcoal/70 mb-6">
-              What began as a passion project has grown into one of the most influential voices in the construction industry. With over 387 episodes and 600,000+ listeners worldwide, AOC has become the go-to resource for builders seeking inspiration, education, and community.
-            </p>
-            <p className="text-lg text-charcoal/70">
-              But Devon isn't just a host—he's a connector. Through the Master Facilitators community, he's built a tribe of construction professionals dedicated to system-built solutions and offsite construction innovation.
-            </p>
+            
+            <div className="space-y-6 text-charcoal/80 text-lg leading-relaxed">
+              <p className="text-xl font-medium text-charcoal">
+                I grew up in the construction industry. It's in my blood.
+              </p>
+              
+              <p>
+                As President of Mountain View Window & Door in Denver, I've spent years working with builders, contractors, and tradespeople who pour their hearts into every project. But somewhere along the way, I noticed something was missing.
+              </p>
+              
+              <p>
+                The industry was full of incredible people doing amazing work — but they weren't talking to each other. Knowledge was siloed. Best practices stayed local. And the same problems kept getting solved over and over again in isolation.
+              </p>
+              
+              <p className="text-xl font-semibold text-charcoal border-l-4 border-rust pl-6 my-8">
+                So in 2014, I grabbed a microphone and started having conversations.
+              </p>
+              
+              <p>
+                What began as simple podcast interviews with industry friends quickly became something bigger. Builders started reaching out. Manufacturers wanted to share their stories. Architects, developers, and tech innovators all had insights worth spreading.
+              </p>
+              
+              <p>
+                Ten years and 387+ episodes later, The Art of Construction has reached over 721,000 downloads. But the numbers aren't what drive me.
+              </p>
+              
+              <p className="text-xl font-semibold text-charcoal border-l-4 border-rust pl-6 my-8">
+                What drives me is watching someone hear an idea on the show and implement it the next day. It's seeing strangers become collaborators. It's building a tribe of people who believe construction can be better — and are doing something about it.
+              </p>
+              
+              <p>
+                That's why I created the Master Facilitators community. That's why we host events at Turkey Toe. That's why I show up every week ready to learn from someone new.
+              </p>
+              
+              <p className="text-xl font-medium text-charcoal">
+                Because construction isn't just about buildings. It's about the people who build them. And those people deserve to be heard.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
