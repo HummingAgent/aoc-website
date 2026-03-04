@@ -227,20 +227,30 @@ export default function AboutPage() {
                 </p>
               </div>
               
-              {/* Family Image */}
-              <div className="lg:col-span-2">
+              {/* Family / New Year Card */}
+              <div className="lg:col-span-2 space-y-6">
                 <div className="relative rounded-2xl overflow-hidden shadow-xl">
                   <Image
-                    src="/images/devon-family.png"
-                    alt="Devon Tilly with family and the AOC community"
+                    src="/images/devon-new-year-card.png"
+                    alt="The Tilly Family - Devon, Sarah, and Eva"
                     width={600}
-                    height={700}
+                    height={800}
                     className="w-full h-auto object-cover"
                   />
                 </div>
-                <p className="text-center text-charcoal/60 text-sm mt-4 italic">
-                  Family, community, and purpose — the foundation of everything we build.
-                </p>
+                
+                {/* Family Details */}
+                <div className="bg-white/80 rounded-xl p-6 shadow-md">
+                  <h3 className="font-playfair text-xl font-bold text-charcoal mb-4">The Tillys</h3>
+                  <div className="space-y-3 text-charcoal/70 text-sm">
+                    <p><strong className="text-charcoal">Sarah</strong> — 20+ years as a Physician Assistant in orthopedics. Always up for an adventure.</p>
+                    <p><strong className="text-charcoal">Eva</strong> — 5th grader who keeps busy with hip hop dance, soccer, and skiing. Excels in math.</p>
+                    <p><strong className="text-charcoal">Devon</strong> — 14 years owning Mountain View Window & Door. Host of AOC.</p>
+                  </div>
+                  <p className="mt-4 text-charcoal/80 italic text-sm border-t border-charcoal/10 pt-4">
+                    "We're all about living life to the fullest and embracing every moment with enthusiasm and joy."
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
