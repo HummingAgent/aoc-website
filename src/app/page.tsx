@@ -210,8 +210,8 @@ export default function Home() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-20 w-full">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Column - Text */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -222,25 +222,27 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-rust rounded-full text-white text-sm font-semibold mb-6 shadow-lg"
+                className="flex justify-center lg:justify-start mb-6"
               >
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-                </span>
-                Episode 387 Now Live
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-rust rounded-full text-white text-sm font-semibold shadow-lg">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                  </span>
+                  Episode 387 Now Live
+                </div>
               </motion.div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white font-playfair leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white font-playfair leading-tight mb-6 text-center lg:text-left">
                 The Art of{" "}
                 <span className="text-gradient">Construction</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-white/70 mb-8 max-w-xl">
+              <p className="text-lg md:text-xl text-white/70 mb-8 max-w-xl text-center lg:text-left mx-auto lg:mx-0">
                 Join Devon Tilly and 721,000+ construction professionals in the ultimate community for builders, innovators, and industry leaders.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <div className="flex flex-col sm:flex-row gap-4 mb-12 items-center lg:items-start">
                 <Link
                   href="/episodes"
                   className="group px-8 py-4 bg-gradient-to-r from-rust to-copper text-white font-semibold rounded-full hover:from-rust-dark hover:to-rust transition-all shadow-xl hover:shadow-2xl glow-rust flex items-center justify-center gap-3"
