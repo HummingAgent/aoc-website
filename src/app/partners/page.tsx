@@ -105,6 +105,13 @@ const partners = [
     category: "Design & Visualization",
   },
   {
+    name: "K3 Technology",
+    description: "IT Support for Denver & Dallas businesses. Managed IT services, cybersecurity, and technology solutions for construction companies.",
+    logo: "/images/partners/k3-logo.png",
+    website: "https://k3techs.com/",
+    category: "IT Services",
+  },
+  {
     name: "Information Technology Solutions",
     description: "We deliver a customer-focused, human approach to technology for construction businesses.",
     logo: "/images/partners/its-logo.png",
