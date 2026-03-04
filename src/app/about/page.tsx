@@ -188,42 +188,60 @@ export default function AboutPage() {
               My <span className="text-gradient">Why</span>
             </h2>
             
-            <div className="space-y-6 text-charcoal/80 text-lg leading-relaxed">
-              <p className="text-xl font-medium text-charcoal">
-                I grew up in the construction industry. It's in my blood.
-              </p>
+            <div className="grid lg:grid-cols-5 gap-12 items-start">
+              <div className="lg:col-span-3 space-y-6 text-charcoal/80 text-lg leading-relaxed">
+                <p className="text-xl font-medium text-charcoal">
+                  I grew up in the construction industry. It's in my blood.
+                </p>
+                
+                <p>
+                  As President of Mountain View Window & Door in Denver, I've spent years working with builders, contractors, and tradespeople who pour their hearts into every project. But somewhere along the way, I noticed something was missing.
+                </p>
+                
+                <p>
+                  The industry was full of incredible people doing amazing work — but they weren't talking to each other. Knowledge was siloed. Best practices stayed local. And the same problems kept getting solved over and over again in isolation.
+                </p>
+                
+                <p className="text-xl font-semibold text-charcoal border-l-4 border-rust pl-6 my-8">
+                  So in 2014, I grabbed a microphone and started having conversations.
+                </p>
+                
+                <p>
+                  What began as simple podcast interviews with industry friends quickly became something bigger. Builders started reaching out. Manufacturers wanted to share their stories. Architects, developers, and tech innovators all had insights worth spreading.
+                </p>
+                
+                <p>
+                  Ten years and 387+ episodes later, The Art of Construction has reached over 721,000 downloads. But the numbers aren't what drive me.
+                </p>
+                
+                <p className="text-xl font-semibold text-charcoal border-l-4 border-rust pl-6 my-8">
+                  What drives me is watching someone hear an idea on the show and implement it the next day. It's seeing strangers become collaborators. It's building a tribe of people who believe construction can be better — and are doing something about it.
+                </p>
+                
+                <p>
+                  That's why I created the Master Facilitators community. That's why we host events at Turkey Toe. That's why I show up every week ready to learn from someone new.
+                </p>
+                
+                <p className="text-xl font-medium text-charcoal">
+                  Because construction isn't just about buildings. It's about the people who build them. And those people deserve to be heard.
+                </p>
+              </div>
               
-              <p>
-                As President of Mountain View Window & Door in Denver, I've spent years working with builders, contractors, and tradespeople who pour their hearts into every project. But somewhere along the way, I noticed something was missing.
-              </p>
-              
-              <p>
-                The industry was full of incredible people doing amazing work — but they weren't talking to each other. Knowledge was siloed. Best practices stayed local. And the same problems kept getting solved over and over again in isolation.
-              </p>
-              
-              <p className="text-xl font-semibold text-charcoal border-l-4 border-rust pl-6 my-8">
-                So in 2014, I grabbed a microphone and started having conversations.
-              </p>
-              
-              <p>
-                What began as simple podcast interviews with industry friends quickly became something bigger. Builders started reaching out. Manufacturers wanted to share their stories. Architects, developers, and tech innovators all had insights worth spreading.
-              </p>
-              
-              <p>
-                Ten years and 387+ episodes later, The Art of Construction has reached over 721,000 downloads. But the numbers aren't what drive me.
-              </p>
-              
-              <p className="text-xl font-semibold text-charcoal border-l-4 border-rust pl-6 my-8">
-                What drives me is watching someone hear an idea on the show and implement it the next day. It's seeing strangers become collaborators. It's building a tribe of people who believe construction can be better — and are doing something about it.
-              </p>
-              
-              <p>
-                That's why I created the Master Facilitators community. That's why we host events at Turkey Toe. That's why I show up every week ready to learn from someone new.
-              </p>
-              
-              <p className="text-xl font-medium text-charcoal">
-                Because construction isn't just about buildings. It's about the people who build them. And those people deserve to be heard.
-              </p>
+              {/* Family Image */}
+              <div className="lg:col-span-2">
+                <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                  <Image
+                    src="/images/devon-family.png"
+                    alt="Devon Tilly with family and the AOC community"
+                    width={600}
+                    height={700}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <p className="text-center text-charcoal/60 text-sm mt-4 italic">
+                  Family, community, and purpose — the foundation of everything we build.
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
