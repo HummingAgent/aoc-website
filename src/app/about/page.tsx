@@ -428,16 +428,16 @@ export default function AboutPage() {
                   height={400}
                   className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center justify-between mb-1">
                     <h3 className="text-xl font-bold text-white">Matt McMullen</h3>
-                    <a href="https://www.linkedin.com/in/matt-mcmullen-20314116/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-rust transition-colors">
+                    <a href="https://www.linkedin.com/in/matt-mcmullen-20314116/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-rust transition-colors">
                       <Linkedin className="w-5 h-5" />
                     </a>
                   </div>
-                  <p className="text-rust text-sm font-medium mb-2">Executive Director, AOC</p>
-                  <p className="text-white/70 text-sm leading-relaxed">
+                  <p className="text-white text-sm font-semibold mb-2">Executive Director, AOC</p>
+                  <p className="text-white/80 text-sm leading-relaxed">
                     35 years in design & construction. Licensed Architect in 6 states.
                   </p>
                 </div>
@@ -460,16 +460,16 @@ export default function AboutPage() {
                   height={400}
                   className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center justify-between mb-1">
                     <h3 className="text-xl font-bold text-white">Shawn Kercher</h3>
-                    <a href="https://www.linkedin.com/in/shawnkercher/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-rust transition-colors">
+                    <a href="https://www.linkedin.com/in/shawnkercher/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-rust transition-colors">
                       <Linkedin className="w-5 h-5" />
                     </a>
                   </div>
-                  <p className="text-rust text-sm font-medium mb-2">Co-Founder & CTO, HummingAgent</p>
-                  <p className="text-white/70 text-sm leading-relaxed">
+                  <p className="text-white text-sm font-semibold mb-2">Co-Founder & CTO, HummingAgent</p>
+                  <p className="text-white/80 text-sm leading-relaxed">
                     15 years AI at Fortune 100s. 8 US patents. Former Comcast Labs.
                   </p>
                 </div>
@@ -492,16 +492,16 @@ export default function AboutPage() {
                   height={400}
                   className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center justify-between mb-1">
                     <h3 className="text-xl font-bold text-white">Joey Kercher</h3>
-                    <a href="https://www.linkedin.com/in/joeykercher/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-rust transition-colors">
+                    <a href="https://www.linkedin.com/in/joeykercher/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-rust transition-colors">
                       <Linkedin className="w-5 h-5" />
                     </a>
                   </div>
-                  <p className="text-rust text-sm font-medium mb-2">Co-Founder, HummingAgent</p>
-                  <p className="text-white/70 text-sm leading-relaxed">
+                  <p className="text-white text-sm font-semibold mb-2">Co-Founder, HummingAgent</p>
+                  <p className="text-white/80 text-sm leading-relaxed">
                     25+ years experiential marketing. President, Air Fresh Marketing.
                   </p>
                 </div>
@@ -524,16 +524,16 @@ export default function AboutPage() {
                   height={400}
                   className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center justify-between mb-1">
                     <h3 className="text-xl font-bold text-white">Kelly Kercher</h3>
-                    <a href="https://www.linkedin.com/in/kellykercher/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-rust transition-colors">
+                    <a href="https://www.linkedin.com/in/kellykercher/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-rust transition-colors">
                       <Linkedin className="w-5 h-5" />
                     </a>
                   </div>
-                  <p className="text-rust text-sm font-medium mb-2">Co-Founder, HummingAgent</p>
-                  <p className="text-white/70 text-sm leading-relaxed">
+                  <p className="text-white text-sm font-semibold mb-2">Co-Founder, HummingAgent</p>
+                  <p className="text-white/80 text-sm leading-relaxed">
                     Founder & CEO, K3 Technology. IT partner Denver & Dallas.
                   </p>
                 </div>
