@@ -129,7 +129,7 @@ export default function ContactPage() {
               <h2 className="text-2xl font-bold text-charcoal font-playfair mb-6 text-center">
                 Send Us a Message
               </h2>
-              <form className="space-y-6">
+              <form action="https://formspree.io/f/xjgenrwo" method="POST" className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-charcoal mb-2">
@@ -137,6 +137,8 @@ export default function ContactPage() {
                     </label>
                     <input
                       type="text"
+                      name="firstName"
+                      required
                       className="w-full px-4 py-3 rounded-xl border border-rust/20 focus:border-rust focus:ring-2 focus:ring-rust/20 transition-all"
                       placeholder="John"
                     />
@@ -147,6 +149,8 @@ export default function ContactPage() {
                     </label>
                     <input
                       type="text"
+                      name="lastName"
+                      required
                       className="w-full px-4 py-3 rounded-xl border border-rust/20 focus:border-rust focus:ring-2 focus:ring-rust/20 transition-all"
                       placeholder="Doe"
                     />
@@ -158,6 +162,8 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    required
                     className="w-full px-4 py-3 rounded-xl border border-rust/20 focus:border-rust focus:ring-2 focus:ring-rust/20 transition-all"
                     placeholder="john@example.com"
                   />
@@ -166,13 +172,13 @@ export default function ContactPage() {
                   <label className="block text-sm font-medium text-charcoal mb-2">
                     Subject
                   </label>
-                  <select className="w-full px-4 py-3 rounded-xl border border-rust/20 focus:border-rust focus:ring-2 focus:ring-rust/20 transition-all">
+                  <select name="subject" required className="w-full px-4 py-3 rounded-xl border border-rust/20 focus:border-rust focus:ring-2 focus:ring-rust/20 transition-all">
                     <option value="">Select a topic</option>
-                    <option value="podcast">Podcast Guest Inquiry</option>
-                    <option value="sponsor">Sponsorship</option>
-                    <option value="community">Master Facilitators</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="other">Other</option>
+                    <option value="Podcast Guest Inquiry">Podcast Guest Inquiry</option>
+                    <option value="Sponsorship">Sponsorship</option>
+                    <option value="Master Facilitators">Master Facilitators</option>
+                    <option value="Partnership">Partnership</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
                 <div>
@@ -180,6 +186,8 @@ export default function ContactPage() {
                     Message
                   </label>
                   <textarea
+                    name="message"
+                    required
                     rows={5}
                     className="w-full px-4 py-3 rounded-xl border border-rust/20 focus:border-rust focus:ring-2 focus:ring-rust/20 transition-all resize-none"
                     placeholder="Tell us what's on your mind..."
