@@ -114,12 +114,16 @@ export default function AboutPage() {
       </AnimatePresence>
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/hero-header.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-charcoal/90 via-charcoal/80 to-charcoal/90" />
+        {/* Background Image - Family Photo */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/devon-family.png"
+            alt="The Tilly Family"
+            fill
+            className="object-cover object-top"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-charcoal/90 via-charcoal/80 to-charcoal/70" />
         <div className="absolute inset-0 beam-pattern opacity-10" />
         <motion.div
           initial={{ opacity: 0 }}
@@ -220,7 +224,7 @@ export default function AboutPage() {
             src="/images/devon-family.png"
             alt="The Tilly Family"
             fill
-            className="object-cover object-right"
+            className="object-cover object-top"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/95 to-charcoal/40" />
         </div>
