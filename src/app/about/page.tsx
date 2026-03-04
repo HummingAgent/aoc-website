@@ -420,8 +420,14 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10"
             >
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-rust to-copper flex items-center justify-center text-white text-2xl font-bold">
-                MM
+              <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+                <Image
+                  src="/images/leaders/matt-mcmullen.jpg"
+                  alt="Matt McMullen"
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl font-bold text-white text-center mb-1">Matt McMullen</h3>
               <p className="text-rust text-sm text-center mb-4">Executive Director, AOC</p>
