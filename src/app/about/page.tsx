@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { 
@@ -15,7 +16,8 @@ import {
   Building2,
   Lightbulb,
   Instagram,
-  Linkedin
+  Linkedin,
+  X
 } from "lucide-react";
 
 const milestones = [
@@ -72,8 +74,44 @@ const values = [
 ];
 
 export default function AboutPage() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <div className="min-h-screen bg-cream">
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 text-white hover:text-rust transition-colors"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative max-w-5xl max-h-[90vh] w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={selectedImage}
+                alt="Enlarged view"
+                width={1200}
+                height={1400}
+                className="w-full h-auto max-h-[90vh] object-contain rounded-lg"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         {/* Background Image */}
@@ -230,25 +268,42 @@ export default function AboutPage() {
               {/* Family Images */}
               <div className="lg:col-span-2 space-y-6">
                 {/* Family Collage */}
-                <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <div 
+                  className="relative rounded-2xl overflow-hidden shadow-xl cursor-pointer group"
+                  onClick={() => setSelectedImage("/images/devon-family.png")}
+                >
                   <Image
                     src="/images/devon-family.png"
                     alt="Devon Tilly with family and the AOC community"
                     width={600}
                     height={700}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                    <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-sm font-medium bg-charcoal/70 px-3 py-1 rounded-full">
+                      Click to enlarge
+                    </span>
+                  </div>
                 </div>
                 
                 {/* New Year Card */}
-                <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                {/* New Year Card */}
+                <div 
+                  className="relative rounded-2xl overflow-hidden shadow-xl cursor-pointer group"
+                  onClick={() => setSelectedImage("/images/devon-new-year-card.png")}
+                >
                   <Image
                     src="/images/devon-new-year-card.png"
                     alt="The Tilly Family - Devon, Sarah, and Eva - 2026"
                     width={600}
                     height={800}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                    <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-sm font-medium bg-charcoal/70 px-3 py-1 rounded-full">
+                      Click to enlarge
+                    </span>
+                  </div>
                 </div>
                 
                 {/* Family Details */}
