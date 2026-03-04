@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,7 +12,8 @@ import {
   Calendar,
   Headphones,
   Users,
-  ArrowRight
+  ArrowRight,
+  Loader2
 } from "lucide-react";
 
 const benefits = [
@@ -38,6 +40,41 @@ const benefits = [
 ];
 
 export default function SubscribePage() {
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [role, setRole] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, firstName, role }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus("success");
+        setMessage(data.message || "Successfully subscribed!");
+        setEmail("");
+        setFirstName("");
+        setRole("");
+      } else {
+        setStatus("error");
+        setMessage(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setStatus("error");
+      setMessage("Network error. Please try again.");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero Section */}
@@ -75,52 +112,91 @@ export default function SubscribePage() {
                 Get the latest episodes, industry insights, and exclusive content delivered straight to your inbox.
               </p>
 
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-white/80 text-sm mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="you@example.com"
-                    className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/50 focus:outline-none focus:border-rust focus:ring-2 focus:ring-rust/50"
-                  />
-                </div>
-                <div>
-                  <label className="block text-white/80 text-sm mb-2">
-                    First Name (optional)
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="John"
-                    className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/50 focus:outline-none focus:border-rust focus:ring-2 focus:ring-rust/50"
-                  />
-                </div>
-                <div>
-                  <label className="block text-white/80 text-sm mb-2">
-                    What's your role?
-                  </label>
-                  <select className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:border-rust focus:ring-2 focus:ring-rust/50">
-                    <option value="" className="bg-charcoal">Select your role</option>
-                    <option value="builder" className="bg-charcoal">Builder/Contractor</option>
-                    <option value="architect" className="bg-charcoal">Architect/Designer</option>
-                    <option value="owner" className="bg-charcoal">Business Owner</option>
-                    <option value="supplier" className="bg-charcoal">Supplier/Manufacturer</option>
-                    <option value="investor" className="bg-charcoal">Investor</option>
-                    <option value="other" className="bg-charcoal">Other</option>
-                  </select>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full px-8 py-4 bg-gradient-to-r from-rust to-copper text-white font-semibold rounded-xl hover:from-rust-dark hover:to-rust transition-all shadow-xl glow-rust flex items-center justify-center gap-2"
+              {status === "success" ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-green-500/20 border border-green-500/40 rounded-xl p-8 text-center"
                 >
-                  <Mail className="w-5 h-5" />
-                  Subscribe Now
-                </button>
-                <p className="text-white/50 text-xs text-center">
-                  No spam, ever. Unsubscribe anytime.
-                </p>
-              </form>
+                  <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                  <h3 className="text-2xl font-bold text-white mb-2">You're In!</h3>
+                  <p className="text-white/70">{message}</p>
+                  <p className="text-white/50 text-sm mt-4">Check your inbox for a welcome email.</p>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-white/80 text-sm mb-2">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="you@example.com"
+                      className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/50 focus:outline-none focus:border-rust focus:ring-2 focus:ring-rust/50"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-white/80 text-sm mb-2">
+                      First Name (optional)
+                    </label>
+                    <input
+                      type="text"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      placeholder="John"
+                      className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/50 focus:outline-none focus:border-rust focus:ring-2 focus:ring-rust/50"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-white/80 text-sm mb-2">
+                      What's your role?
+                    </label>
+                    <select 
+                      value={role}
+                      onChange={(e) => setRole(e.target.value)}
+                      className="w-full px-5 py-4 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:border-rust focus:ring-2 focus:ring-rust/50"
+                    >
+                      <option value="" className="bg-charcoal">Select your role</option>
+                      <option value="builder" className="bg-charcoal">Builder/Contractor</option>
+                      <option value="architect" className="bg-charcoal">Architect/Designer</option>
+                      <option value="owner" className="bg-charcoal">Business Owner</option>
+                      <option value="supplier" className="bg-charcoal">Supplier/Manufacturer</option>
+                      <option value="investor" className="bg-charcoal">Investor</option>
+                      <option value="other" className="bg-charcoal">Other</option>
+                    </select>
+                  </div>
+                  
+                  {status === "error" && (
+                    <div className="bg-red-500/20 border border-red-500/40 rounded-lg p-3 text-red-300 text-sm">
+                      {message}
+                    </div>
+                  )}
+                  
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="w-full px-8 py-4 bg-gradient-to-r from-rust to-copper text-white font-semibold rounded-xl hover:from-rust-dark hover:to-rust transition-all shadow-xl glow-rust flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {status === "loading" ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Subscribing...
+                      </>
+                    ) : (
+                      <>
+                        <Mail className="w-5 h-5" />
+                        Subscribe Now
+                      </>
+                    )}
+                  </button>
+                  <p className="text-white/50 text-xs text-center">
+                    No spam, ever. Unsubscribe anytime.
+                  </p>
+                </form>
+              )}
             </motion.div>
 
             {/* Right - Benefits */}
