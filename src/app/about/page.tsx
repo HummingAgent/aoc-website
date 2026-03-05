@@ -425,7 +425,7 @@ export default function AboutPage() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-white text-center mb-1">Matt McMullen</h3>
+              <h3 className="text-xl font-bold text-white text-center mb-1">Matt<br />McMullen</h3>
               <p className="text-rust text-sm text-center mb-4">Executive Director, AOC</p>
               <p className="text-white/70 text-sm text-center flex-grow">
                 35 years in design, real estate & construction. Licensed Architect in 6 states. AIA, LEED-AP, NCARB. Principal of CREATE.architecture.
@@ -457,7 +457,7 @@ export default function AboutPage() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-white text-center mb-1">Shawn Kercher</h3>
+              <h3 className="text-xl font-bold text-white text-center mb-1">Shawn<br />Kercher</h3>
               <p className="text-rust text-sm text-center mb-4">Co-Founder & CTO, HummingAgent</p>
               <p className="text-white/70 text-sm text-center flex-grow">
                 15 years building AI systems in Fortune 100 companies. Former Sr Principal Engineer at Comcast Labs. 8 US patents in AI & computer vision.
@@ -489,7 +489,7 @@ export default function AboutPage() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-white text-center mb-1">Joey Kercher</h3>
+              <h3 className="text-xl font-bold text-white text-center mb-1">Joey<br />Kercher</h3>
               <p className="text-rust text-sm text-center mb-4">Co-Founder, HummingAgent</p>
               <p className="text-white/70 text-sm text-center flex-grow">
                 25+ years in experiential marketing. President of Air Fresh Marketing. Built network of 5,000+ brand ambassadors across 50+ cities.
@@ -524,7 +524,7 @@ export default function AboutPage() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-white text-center mb-1">Kelly Kercher</h3>
+              <h3 className="text-xl font-bold text-white text-center mb-1">Kelly<br />Kercher</h3>
               <p className="text-rust text-sm text-center mb-4">Co-Founder, HummingAgent</p>
               <p className="text-white/70 text-sm text-center flex-grow">
                 Founder & CEO of K3 Technology. Trusted IT partner for businesses in Denver & Dallas. Cloud infrastructure, cybersecurity & managed services.
@@ -559,7 +559,7 @@ export default function AboutPage() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-white text-center mb-1">Ryan Lee</h3>
+              <h3 className="text-xl font-bold text-white text-center mb-1">Ryan<br />Lee</h3>
               <p className="text-rust text-sm text-center mb-4">Information Technology Solutions</p>
               <p className="text-white/70 text-sm text-center flex-grow">
                 Delivering customer-focused, human approach to technology for construction businesses. IT infrastructure and managed services expert.
@@ -591,7 +591,7 @@ export default function AboutPage() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-white text-center mb-1">Devon Tilly</h3>
+              <h3 className="text-xl font-bold text-white text-center mb-1">Devon<br />Tilly</h3>
               <p className="text-rust text-sm text-center mb-4">Founder, Art of Construction</p>
               <p className="text-white/70 text-sm text-center flex-grow">
                 Host of The Art of Construction podcast. 14+ years as President of Mountain View Window & Door. Building the Master Facilitators tribe.
