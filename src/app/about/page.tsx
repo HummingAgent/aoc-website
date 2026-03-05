@@ -494,7 +494,7 @@ export default function AboutPage() {
               <p className="text-white/70 text-sm text-center flex-grow">
                 25+ years in experiential marketing. President of Air Fresh Marketing. Built network of 5,000+ brand ambassadors across 50+ cities.
               </p>
-              <div className="flex justify-center items-center gap-3 mt-4 pt-4 border-t border-white/10">
+              <div className="flex flex-col items-center gap-1 mt-4 pt-4 border-t border-white/10">
                 <a href="https://www.linkedin.com/in/joeykercher/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-rust transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>
@@ -529,7 +529,7 @@ export default function AboutPage() {
               <p className="text-white/70 text-sm text-center flex-grow">
                 Founder & CEO of K3 Technology. Trusted IT partner for businesses in Denver & Dallas. Cloud infrastructure, cybersecurity & managed services.
               </p>
-              <div className="flex justify-center items-center gap-3 mt-4 pt-4 border-t border-white/10">
+              <div className="flex flex-col items-center gap-1 mt-4 pt-4 border-t border-white/10">
                 <a href="https://www.linkedin.com/in/kellykercher/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-rust transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>
@@ -537,7 +537,7 @@ export default function AboutPage() {
                   HummingAgent
                 </a>
                 <a href="https://k3techs.com" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-rust transition-colors text-xs">
-                  K3 Technology
+                  K3
                 </a>
               </div>
             </motion.div>
@@ -596,14 +596,14 @@ export default function AboutPage() {
               <p className="text-white/70 text-sm text-center flex-grow">
                 Host of The Art of Construction podcast. 14+ years as President of Mountain View Window & Door. Building the Master Facilitators tribe.
               </p>
-              <div className="flex justify-center items-center gap-3 mt-4 pt-4 border-t border-white/10">
+              <div className="flex flex-col items-center gap-1 mt-4 pt-4 border-t border-white/10">
                 <a href="https://www.linkedin.com/in/devon-tilly-5a407a20/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-rust transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a href="https://theartofconstruction.net" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-rust transition-colors text-xs">
                   AOC
                 </a>
-                <a href="https://mtviewwd.com" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-rust transition-colors text-xs">
+                <a href="https://www.mtnview.us/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-rust transition-colors text-xs">
                   MVWD
                 </a>
               </div>
