@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { use } from "react";
 import AudioPlayer from "@/components/AudioPlayer";
-import { linkifyText } from "@/lib/linkify";
+// linkifyText removed - using raw HTML from RSS feed
 
 interface Episode {
   id: number;
@@ -252,9 +252,10 @@ export default function EpisodePage({ params }: { params: Promise<{ id: string }
             <h2 className="text-2xl font-bold text-charcoal font-playfair mb-6">
               Show Notes
             </h2>
-            <div className="prose prose-lg max-w-none text-charcoal/80">
-              <p className="whitespace-pre-wrap">{linkifyText(episode.description)}</p>
-            </div>
+            <div 
+              className="prose prose-lg max-w-none text-charcoal/80 prose-a:text-rust prose-a:hover:text-rust-dark prose-a:underline"
+              dangerouslySetInnerHTML={{ __html: episode.description }}
+            />
           </motion.div>
         </div>
       </section>

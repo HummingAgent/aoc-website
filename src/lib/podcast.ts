@@ -123,7 +123,7 @@ export async function fetchPodcastFeed(): Promise<PodcastFeed> {
     return {
       id: episodeNum,
       title: (item.title || '').replace(/^\d+:\s*/, ''), // Remove episode number prefix
-      description: item.contentSnippet || '',
+      description: item.content || item.contentSnippet || '',
       pubDate: item.pubDate || '',
       duration: durationStr,
       audioUrl: item.enclosure?.url || '',
