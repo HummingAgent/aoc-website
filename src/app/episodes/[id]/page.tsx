@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { use } from "react";
 import AudioPlayer from "@/components/AudioPlayer";
+import { linkifyText } from "@/lib/linkify";
 
 interface Episode {
   id: number;
@@ -252,7 +253,7 @@ export default function EpisodePage({ params }: { params: Promise<{ id: string }
               Show Notes
             </h2>
             <div className="prose prose-lg max-w-none text-charcoal/80">
-              <p className="whitespace-pre-wrap">{episode.description}</p>
+              <p className="whitespace-pre-wrap">{linkifyText(episode.description)}</p>
             </div>
           </motion.div>
         </div>
