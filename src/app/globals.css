@@ -146,3 +146,16 @@ section {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-rust-dark);
 }
+
+/* Show notes link styling */
+.show-notes-content a {
+  color: var(--color-rust);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.show-notes-content a:hover {
+  color: var(--color-rust-dark);
+}

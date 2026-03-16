@@ -253,7 +253,7 @@ export default function EpisodePage({ params }: { params: Promise<{ id: string }
               Show Notes
             </h2>
             <div 
-              className="prose prose-lg max-w-none text-charcoal/80 prose-a:text-rust prose-a:hover:text-rust-dark prose-a:underline"
+              className="show-notes-content text-charcoal/80 leading-relaxed"
               dangerouslySetInnerHTML={{ __html: episode.description }}
             />
           </motion.div>
